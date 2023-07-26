@@ -36,6 +36,7 @@ const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) 
 }
 
   return (
+    
     <form onSubmit={create}>
       <h3>Whats on your mind today?</h3>
       <input

@@ -1,6 +1,7 @@
 /*  */
 * {
   box-sizing: border-box;
+  margin: 20px;
 }
 
 html,
@@ -30,12 +31,34 @@ main {
 
 input, textarea {
   display: block;
-  max-width: 300px;
+  /* border-radius: 6px;
+  max-width: 500px;
   margin: 0.5rem 0;
+
+  border: none;
+  border-bottom: 1px solid #242424; */
+}
+
+input {
+width: 100%;
+  }
+textarea {
+  
+  width: 80%;
+        height: 150px;
+}
+
+
+
+ input, textarea::placeholder {
+  font-weight: bold;
+    opacity: 0.5;
+    color: rgb(110, 110, 110);
 }
 
 button {
   background-color: #000000;
+  border-radius: 6px;
   border: none;
   color: white;
   padding: 0.5rem 2rem;
@@ -49,4 +72,11 @@ nav a {
   font-weight: bold;
   margin: 0 0.5rem;
   text-decoration: underline;
+}
+
+
+form {
+  border: solid 2px red;
+  width: 60%;
+  background-color: antiquewhite;
 }

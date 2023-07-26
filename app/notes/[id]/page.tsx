@@ -18,10 +18,10 @@ const note = await getNote(params.id);
 
   return (
     <div>
-      <h1>Note//{note.id}</h1>
+      <h1>Note//{note.Title}</h1>
       <div className={styles.note}>
-<h3>{note.Title}</h3>
-<h5>{note.Content}</h5>
+<h3>{note.Content}</h3>
+
 <p>{note.created}</p>
 
 

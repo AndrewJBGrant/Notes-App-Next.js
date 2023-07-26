@@ -13,10 +13,12 @@ async function getNotes() {
   return data?.items as any[];
 }
 
+
+
 export default async function NotesPage() {
   const notes = await getNotes();
 
-  return (
+return (
     <div>
       <h1>NOTES</h1>
       <div className={styles.grid}>
@@ -33,6 +35,11 @@ export default async function NotesPage() {
 function Note({ note }: any) {
   const { id, Title, Content, created } = note || {};
 
+ 
+
+
+
+
 //   let d = created;
 // d = d.split(' ')[0];
 
@@ -48,8 +55,8 @@ let d = new Intl.DateTimeFormat('en-GB', {
   return (
     <Link href={`/notes/${id}`}>
       <div className={styles.note}>
-        <h2>{Title}</h2>
-        <h5>{Content}</h5>
+        <h2>~{Title}</h2>
+        <h3>{Content}</h3>
         <p>{d}</p>
       </div>
     </Link>

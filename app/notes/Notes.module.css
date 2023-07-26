@@ -6,7 +6,7 @@
 
 .grid {
   margin-top: 2rem;
-  display: flex;
+  display: gird;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
