@@ -11,20 +11,18 @@ async function getNote(noteId: string) {
   return data;
 }
 
-
-
-export default async function NotesPage( { params }: any) {
-const note = await getNote(params.id);
+export default async function NotesPage({ params }: any) {
+  const note = await getNote(params.id);
 
   return (
     <div>
       <h1>Note//{note.Title}</h1>
+      <div className="grid gap-4 grid-cols-3 grid-rows-3">
       <div className={styles.note}>
-<h3>{note.Content}</h3>
+        <h3>{note.Content}</h3>
 
-<p>{note.created}</p>
-
-
+        <p>{note.created}</p>
+      </div>
       </div>
     </div>
   );

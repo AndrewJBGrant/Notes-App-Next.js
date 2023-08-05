@@ -11,6 +11,7 @@ async function getNotes() {
   );
   const data = await res.json();
   return data?.items as any[];
+  //                      ^?
 }
 
 
@@ -35,7 +36,7 @@ return (
 function Note({ note }: any) {
   const { id, Title, Content, created } = note || {};
 
- 
+
 
 
 
