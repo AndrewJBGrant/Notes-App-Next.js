@@ -58,7 +58,7 @@ let d = new Intl.DateTimeFormat('en-GB', {
       <div className={styles.note}>
         <h2>~{Title}</h2>
         <h3>{Content}</h3>
-        <p>{d}</p>
+        <p className="text-sm text-slate-500 truncate">{d}</p>
       </div>
     </Link>
   );
