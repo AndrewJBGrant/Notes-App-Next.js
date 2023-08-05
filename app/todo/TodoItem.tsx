@@ -4,7 +4,7 @@ const TodoItem: React.FC<{ text: string; onDeleteTodo: () => void }> = (props) =
 
   return(
 
-  <li onClick={props.onDeleteTodo}>{props.text}</li>
+  <li>{props.text}<button onClick={props.onDeleteTodo}>delete</button></li>
 
 )};
 
