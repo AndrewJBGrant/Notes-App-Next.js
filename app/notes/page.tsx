@@ -1,10 +1,11 @@
-'use client'
+
 
 
 
 // import Link from "next/link";
 import styles from "./Notes.module.css";
 import CreateNote from "./CreateNote";
+// import { useState } from "react";
 
 async function getNotes() {
   const res = await fetch(
@@ -21,7 +22,13 @@ async function getNotes() {
 export default async function NotesPage() {
 
 
+
+
   const notes = await getNotes();
+  console.log(notes)
+
+
+
 
 
   return (
@@ -29,6 +36,7 @@ export default async function NotesPage() {
       <h1>NOTES</h1>
       <div className="grid gap-x-8 gap-y-8 grid-cols-3">
         {notes?.map((note) => {
+        // ^?
           return <Note key={note.id} note={note} onDelete={function (noteId: string): void {
              //                                                        ^?
             throw new Error("Function not implemented.");
@@ -42,7 +50,6 @@ export default async function NotesPage() {
 }
 
 async function deleteNote(noteId: string): Promise<void> {
-
   try {
     const apiUrl = `http://127.0.0.1:8090/api/collections/notes/records/${noteId}`;
     const response = await fetch(apiUrl, {
@@ -98,12 +105,6 @@ const Note: React.FC<NoteProps> = ({ note, onDelete }) => {
 
 
 
-// function Note({ note }: any) {
-//   const { id, Title, Content, created } = note || {};
-
-  //   let d = created;
-  // d = d.split(' ')[0];
-
   let dateString = created;
   let date = new Date(dateString);
   let d = new Intl.DateTimeFormat("en-GB", {
@@ -112,6 +113,8 @@ const Note: React.FC<NoteProps> = ({ note, onDelete }) => {
     day: "numeric",
   }).format(date);
 
+
+
   return (
 
       <div className={styles.note}>
@@ -119,7 +122,7 @@ const Note: React.FC<NoteProps> = ({ note, onDelete }) => {
         <h2>~{Title}</h2>
         <h3>{Content}</h3>
 
-        <div className="pt-8 text-base font-semibold leading-7 place-self-end">
+        <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
         <p className="text-sm text-slate-500 truncate">{d}</p>
         <button onClick={handleDeleteClick}>Delete</button>
         </div>

@@ -45,7 +45,7 @@ const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) 
         value={Title}
         onChange={titleChangehandler}
       />
-      <textarea
+      <textarea className=""
         placeholder="Share your toughts and musings..."
         value={Content}
         onChange={(e) => setContent(e.target.value)}
