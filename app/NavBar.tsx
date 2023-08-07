@@ -13,7 +13,7 @@ const NavBarIcon = ({ icon }: any) =>  (
 
 const NavBar = () => {
   return (
-    <div className="fixed top-0 h-screen w-1 left-0 m-8 flex flex-col text-white shadow-sm active:bg-violet-700">
+    <div className="fixed top-0 h-screen w-1 left-0 m-8 flex flex-col text-white shadow-sm">
       <Link href='/'><NavBarIcon icon={< FaFrog />} /></Link>
      <Link href='notes'><NavBarIcon icon={<FaGhost />} /></Link>
       <NavBarIcon icon={< FaSackDollar />} />

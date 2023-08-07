@@ -26,10 +26,10 @@ props.onAddTodo(enteredText);
 };
 
 return(
-  <form onSubmit={submitHandler}>
+  <form className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg" onSubmit={submitHandler}>
 <label htmlFor="text">Todo Text</label>
 <input type="text" id="text" ref={todoTextInputRef}/>
-<button>Add Todo</button>
+<button className="border-2 border-rose-600">Add Todo</button>
 
 
   </form>

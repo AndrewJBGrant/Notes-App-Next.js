@@ -26,7 +26,8 @@ return prevTodos.concat(newTodo)
     <div>
       <h1>all my todos gonna come from here</h1>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} onDeleteTodo={deleteTodoHandler} />
+      <h1>List of TODOS</h1>
+     <div><Todos items={todos} onDeleteTodo={deleteTodoHandler} /> </div>
     </div>
   );
 };

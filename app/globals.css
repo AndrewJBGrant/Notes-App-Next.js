@@ -72,12 +72,8 @@ textarea {
 }
 
 button {
-  border-radius: 6px;
-  border: none;
-  padding: 0.5rem 2rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -85,10 +81,4 @@ nav a {
   font-weight: bold;
   margin: 0 0.5rem;
   text-decoration: underline;
-}
-
-
-form {
-  border: solid 2px red;
-  width: 60%;
 }

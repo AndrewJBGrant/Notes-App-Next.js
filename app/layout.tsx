@@ -32,9 +32,9 @@ export default function RootLayout({
             </ul>
           </div>
         </aside>
-<FinalTodo />
+          <FinalTodo />
         {children}
-        <Timer />
+        {/* <Timer /> */}
       </body>
     </html>
   );
