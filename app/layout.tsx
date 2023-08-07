@@ -1,12 +1,9 @@
 import "./globals.css";
-import Link from "next/link";
+// import Link from "next/link";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
-import Todos from "./todo/Todos";
-import createTodo, { Todo } from "./models/todo";
-import NewTodo from "./todo/NewTodo";
 import FinalTodo from "./todo/finalTodo";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,16 +22,17 @@ export default function RootLayout({
     <html lang="en">
       <body className="container mx-auto">
         <aside className="w-full sm:w-1/3 md:w-1/4 px-2">
-          <div className="sticky top-0 p-4 w-full">
-            {/* <!-- navigation --> */}
-            <ul className="flex flex-col overflow-hidden">
-              <NavBar />
-            </ul>
-          </div>
+          {/* <!-- navigation --> */}
+          <ul className="flex flex-col overflow-hidden">
+            <NavBar />
+          </ul>
         </aside>
+
+        <div className="bg-emerald-500 grid justify-items-center ">
+          <Timer />
           <FinalTodo />
-        {children}
-        {/* <Timer /> */}
+          {children}
+        </div>
       </body>
     </html>
   );

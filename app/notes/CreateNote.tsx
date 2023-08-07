@@ -36,8 +36,8 @@ const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) 
 }
 
   return (
-    
-    <form onSubmit={create}>
+
+    <form className="p-6 max-w-sm mx-auto w-2/3" onSubmit={create}>
       <h3>Whats on your mind today?</h3>
       <input
         type="text"

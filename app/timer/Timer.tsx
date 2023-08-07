@@ -7,7 +7,7 @@ function Timer() {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    let interval;
+    let interval: number | NodeJS.Timer | undefined;
 
     if (isActive && time > 0) {
       interval = setInterval(() => {
@@ -27,7 +27,7 @@ function Timer() {
   };
 
   return (
-    <div class="border-solid border-2 border-indigo-600 w-1/2">
+    <div className="border-solid border-2 border-indigo-600 w-1/2">
       <h1>{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</h1>
       <button onClick={toggleTimer}>Start</button>
       <button onClick={toggleTimer}> Pause</button>

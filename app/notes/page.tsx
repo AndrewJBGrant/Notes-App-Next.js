@@ -1,8 +1,6 @@
-"use client";
+'use client'
 
-import { useState } from 'react';
 
-import { useRouter } from "next/navigation";
 
 // import Link from "next/link";
 import styles from "./Notes.module.css";
@@ -25,12 +23,14 @@ export default async function NotesPage() {
 
   const notes = await getNotes();
 
+
   return (
-    <div>
+    <div className="border-solid border-2 border-indigo-600 w-1/2">
       <h1>NOTES</h1>
-      <div className={styles.grid}>
+      <div className="grid gap-x-8 gap-y-8 grid-cols-3">
         {notes?.map((note) => {
           return <Note key={note.id} note={note} onDelete={function (noteId: string): void {
+             //                                                        ^?
             throw new Error("Function not implemented.");
           } } />;
         })}
@@ -42,7 +42,7 @@ export default async function NotesPage() {
 }
 
 async function deleteNote(noteId: string): Promise<void> {
-  const [Content, setContent] = useState('');
+
   try {
     const apiUrl = `http://127.0.0.1:8090/api/collections/notes/records/${noteId}`;
     const response = await fetch(apiUrl, {
@@ -53,16 +53,13 @@ async function deleteNote(noteId: string): Promise<void> {
       },
     });
 
-  const router = useRouter();
-
-   router.refresh();
     if (response.ok) {
       console.log('Note deleted successfully');
     } else {
       throw new Error('Error deleting note');
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 
 }
@@ -118,10 +115,15 @@ const Note: React.FC<NoteProps> = ({ note, onDelete }) => {
   return (
 
       <div className={styles.note}>
+
         <h2>~{Title}</h2>
         <h3>{Content}</h3>
+
+        <div className="pt-8 text-base font-semibold leading-7 place-self-end">
         <p className="text-sm text-slate-500 truncate">{d}</p>
-        <button onClick={handleDeleteClick}>Delete note</button>
+        <button onClick={handleDeleteClick}>Delete</button>
+        </div>
+
       </div>
   );
 }

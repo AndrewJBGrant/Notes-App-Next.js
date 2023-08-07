@@ -17,13 +17,13 @@ export default async function NotesPage({ params }: any) {
   return (
     <div>
       <h1>Note//{note.Title}</h1>
-      <div className="grid gap-4 grid-cols-3 grid-rows-3">
+
       <div className={styles.note}>
         <h3>{note.Content}</h3>
 
         <p className="text-sm text-green-600 truncate">{note.created}</p>
       </div>
-      </div>
+
     </div>
   );
 }
