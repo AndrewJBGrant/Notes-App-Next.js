@@ -37,7 +37,7 @@ const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) 
 
   return (
 
-    <form className="p-6 max-w-sm mx-auto w-2/3" onSubmit={create}>
+    <form className="border-2 border-indigo-600" onSubmit={create}>
       <h3>Whats on your mind today?</h3>
       <input
         type="text"
@@ -45,7 +45,7 @@ const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) 
         value={Title}
         onChange={titleChangehandler}
       />
-      <textarea className=""
+      <textarea className="border-2 border-indigo-600"
         placeholder="Share your toughts and musings..."
         value={Content}
         onChange={(e) => setContent(e.target.value)}

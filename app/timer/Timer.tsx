@@ -1,6 +1,5 @@
-'use client'
-import { useState, useEffect } from 'react';
-
+"use client";
+import { useState, useEffect } from "react";
 
 function Timer() {
   const [time, setTime] = useState(1500); // 25 minutes in seconds
@@ -27,10 +26,24 @@ function Timer() {
   };
 
   return (
-    <div className="border-solid border-2 border-indigo-600 w-1/2">
-      <h1>{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</h1>
-      <button onClick={toggleTimer}>Start</button>
-      <button onClick={toggleTimer}> Pause</button>
+    <div className="bg-[#DA775D] text-[#FAF5ED] rounded m-8">
+      <div className="flex flex-col justify-center p-8">
+      <h1 className=" flex justify-center text-8xl">
+        {Math.floor(time / 60)}:{(time % 60).toString().padStart(2, "0")}
+      </h1>
+
+      <button
+        className="px-8 text-3xl flex justify-center"
+        onClick={toggleTimer}
+      >
+        {isActive ? "Pause" : "Start"}
+      </button>
+</div>
+      <div className="border-solid border-2 text-xl grid grid-cols-3 divide-x">
+        <button onClick={toggleTimer}> Focus</button>
+        <button onClick={toggleTimer}> Short Break</button>
+        <button onClick={toggleTimer}> Long Break</button>
+      </div>
     </div>
   );
 }

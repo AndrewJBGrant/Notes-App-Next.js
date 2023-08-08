@@ -19,14 +19,12 @@ if ( enteredText.trim().length === 0) {
   //an error maybe??
   return;
 }
-
-
 // A function that will be stored in layout.tsx
 props.onAddTodo(enteredText);
 };
 
 return(
-  <form className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg" onSubmit={submitHandler}>
+  <form className="w-96" onSubmit={submitHandler}>
 <label htmlFor="text">Todo Text</label>
 <input type="text" id="text" ref={todoTextInputRef}/>
 <button className="border-2 border-rose-600">Add Todo</button>

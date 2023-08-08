@@ -20,15 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="container mx-auto">
-        <aside className="w-full sm:w-1/3 md:w-1/4 px-2">
+      <body>
+
           {/* <!-- navigation --> */}
           <ul className="flex flex-col overflow-hidden">
             <NavBar />
           </ul>
-        </aside>
 
-        <div className="bg-emerald-500 grid justify-items-center ">
+
+        <div className="grid justify-items-center">
           <Timer />
           <FinalTodo />
           {children}
