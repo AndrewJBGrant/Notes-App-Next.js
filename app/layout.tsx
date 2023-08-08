@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
 import FinalTodo from "./todo/finalTodo";
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+    <ClerkProvider>
       <body>
 
           {/* <!-- navigation --> */}
@@ -34,6 +36,7 @@ export default function RootLayout({
           {children}
         </div>
       </body>
+    </ClerkProvider>
     </html>
   );
 }
