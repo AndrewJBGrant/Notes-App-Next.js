@@ -29,7 +29,7 @@ export default function RootLayout({
 
 
         <div className="grid justify-items-center">
-          <Timer />
+          {/* <Timer /> */}
           <FinalTodo />
           {children}
         </div>
