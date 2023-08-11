@@ -1,18 +1,13 @@
+joeeo world!
+joe hello word!
+Hkkllello my name is Andrew and I am learning vim motions!
+
+Hkkllello my name is Andrew and I am learning vim motions!
 
 
-
-
-
-BACK OF TH ELINE2.2.A2HELLO LOOK AT ME USING VIM MOTIONSI
-
-
-joe hello world!
-HlelOHEORLD!
-
-
-
-hjkl-- navigation
 left = h     right = l
 up = k     down = j
+left = h     right = l
 
-jjRRahahahaha
+
+left = h     = l
