@@ -36,7 +36,7 @@ export default function CreateNote() {
 
   return (
     <form className="border-2 border-indigo-600" onSubmit={create}>
-      <h3>Whats on your mind today?</h3>
+      <h3>Create Note component</h3>
       <input
         type="text"
         placeholder="Title"
@@ -44,12 +44,12 @@ export default function CreateNote() {
         onChange={titleChangehandler}
       />
       <textarea
-        className="border-2 border-indigo-600"
+        className="border-2 border-red-600"
         placeholder="Share your toughts and musings..."
         value={Content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button type="submit">Create Note</button>
+      <button type="submit">New Note</button>
     </form>
   );
 }

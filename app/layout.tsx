@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
-import FinalTodo from "./todo/finalTodo";
-import { ClerkProvider } from '@clerk/nextjs'
+
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,27 +17,24 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-    <ClerkProvider>
-      <body>
-
+      <ClerkProvider>
+        <body>
           {/* <!-- navigation --> */}
           <ul className="flex flex-col overflow-hidden">
             <NavBar />
           </ul>
 
+          <div className="grid justify-items-center">
+            {/* <Timer /> */}
 
-        <div className="grid justify-items-center">
-          {/* <Timer /> */}
-          <FinalTodo />
-          {children}
-        </div>
-      </body>
-    </ClerkProvider>
+            {children}
+          </div>
+        </body>
+      </ClerkProvider>
     </html>
   );
 }
