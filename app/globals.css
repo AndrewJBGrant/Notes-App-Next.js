@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 
-@layer components {                     
+@layer components {
 
   .navbar-icon {
     @apply relative flex items-center justify-center
-    h-16 w-16 mt-4 mb-2 mx-auto shadow-lg bg-accent text-[#FBF6EE]
+    h-16 w-16 mt-4 mb-2 mx-auto shadow-lg bg-accent 
     hover:bg-[#4F5480] rounded-3xl hover:rounded-2xl
     transition-all duration-300 ease-linear;
   }

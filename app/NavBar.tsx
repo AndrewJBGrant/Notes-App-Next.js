@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import NavLink from "./nav-link";
 import { FaFrog, FaGhost, FaSackDollar } from "react-icons/fa6";
 import { useState } from "react";
 //   function ServerComponent() {
@@ -55,13 +55,15 @@ const NavBar = () => {
       <div className="navbar-icon group">{currentDate}
       {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
       </div>
-      <Link href="/">
-        <NavBarIcon icon={<FaFrog />} text={"Home"} />
-      </Link>
-      <Link href="notes">
+      <NavLink href="/">
+       <NavBarIcon icon={<FaFrog />} text={"Home"} />
+      </NavLink>
+      <NavLink href="notes">
         <NavBarIcon text={"Notes"} icon={<FaGhost />} />
-      </Link>
+      </NavLink>
+      <NavLink href="journal">
       <NavBarIcon icon={<FaSackDollar />}  text={"Journal"} />
+      </NavLink>
     </div>
   );
 };
