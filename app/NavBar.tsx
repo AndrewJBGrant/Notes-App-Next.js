@@ -38,9 +38,9 @@ function getDate() {
 // }
 
 
-const NavBarIcon = ({ icon, text }: any) => (
+const NavBarIcon = ({ icon, title, text }: any) => (
   <div className="navbar-icon group">
-
+{title}
     {icon}
     <span className="navbar-tooltip group-hover:scale-100">{text}</span>
   </div>
@@ -52,18 +52,18 @@ const NavBar = () => {
 
 
   return (
-    <div className="fixed top-0 h-screen w-1 left-0 m-4 flex flex-col text-white shadow-sm">
+    <div className="fixed top-0 h-screen m-4 flex flex-col text-white shadow-sm">
       <div className="navbar-icon group">{currentDate}
       {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
       </div>
       <NavLink href="/">
-       <NavBarIcon icon={<FaFrog />} text={"Home"} />
+       <NavBarIcon title={"Home"} text={"Home"} />
       </NavLink>
       <NavLink href="notes">
-        <NavBarIcon text={"Notes"} icon={<FaGhost />} />
+        <NavBarIcon text={"Write down a quick notes"} title={"Notes"} />
       </NavLink>
       <NavLink href="journal">
-      <NavBarIcon icon={<FaSackDollar />}  text={"Journal"} />
+      <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
       </NavLink>
     </div>
   );

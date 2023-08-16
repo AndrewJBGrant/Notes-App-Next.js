@@ -24,18 +24,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body>
+        <body className="grid grid-flow-col grid-cols-3 gap-3">
           {/* <!-- navigation --> */}
-          <header>
+          <header className="w-1/3 border-2 border-slate-600">
             <NavBar />
           </header>
-          <main className="grid grid-rows-3 grid-flow-col gap-6">
-            <span className="row-span-3">{children}</span>
-            <span className="p">
+          <main className="col-span-3 border-2 border-rose-600">
+            <span>{children}</span>
+          </main>
+            <aside className="border-2 border-blue-600" >
               <Timer />
               <FinalTodo />
-            </span>
-          </main>
+            </aside>
         </body>
       </ClerkProvider>
     </html>
