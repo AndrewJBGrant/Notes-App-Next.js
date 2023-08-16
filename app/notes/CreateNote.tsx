@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useRouter } from "next/navigation";
 import { SetStateAction, useState } from "react";
@@ -20,8 +20,7 @@ export default function CreateNote() {
       }),
     });
 
-    setContent("");
-    setTitle("");
+   
 
     router.refresh();
   };

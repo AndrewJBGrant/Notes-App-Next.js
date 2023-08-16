@@ -39,7 +39,7 @@ function Timer() {
         {isActive ? "Pause" : "Start"}
       </button>
 </div>
-      <div className="border-solid border-2 text-xl grid grid-cols-3 divide-x">
+      <div className="text-xl grid grid-cols-3 divide-x">
         <button onClick={toggleTimer}> Focus</button>
         <button onClick={toggleTimer}> Short Break</button>
         <button onClick={toggleTimer}> Long Break</button>
