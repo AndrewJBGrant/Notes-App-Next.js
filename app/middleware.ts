@@ -10,3 +10,4 @@ console.log("middleware is running")
 export const config = {
   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+

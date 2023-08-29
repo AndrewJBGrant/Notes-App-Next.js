@@ -4,3 +4,6 @@ export default function ServerComponent() {
     // ...
   }
 }
+
+
+console.log("Hello");

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useRouter } from "next/navigation";
 import { SetStateAction, useState } from "react";
@@ -20,8 +20,6 @@ export default function CreateNote() {
       }),
     });
 
-   
-
     router.refresh();
   };
 
@@ -36,6 +34,7 @@ export default function CreateNote() {
   return (
     <form className="border-2 border-indigo-600" onSubmit={create}>
       <h3>Create Note component</h3>
+
       <input
         type="text"
         placeholder="Title"
