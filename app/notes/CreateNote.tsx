@@ -2,11 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { SetStateAction, useState } from "react";
+import ColorPicker from "./ColorPicker";
 
 export default function CreateNote() {
+
   const [Title, setTitle] = useState("");
   const [Content, setContent] = useState("");
   const router = useRouter();
+
+
 
   const create = async () => {
     await fetch("http://127.0.0.1:8090/api/collections/notes/records", {
@@ -31,8 +35,11 @@ export default function CreateNote() {
     setTitle(e.target.value);
   };
 
+
   return (
     <form className="border-2 border-indigo-600" onSubmit={create}>
+        <ColorPicker />
+
       <h3>Create Note component</h3>
 
       <input
@@ -41,8 +48,8 @@ export default function CreateNote() {
         value={Title}
         onChange={titleChangehandler}
       />
-      <textarea
-        className="border-2 border-red-600"
+       <textarea
+        // className="color-preview" style={{ backgroundColor: selectedColor }}
         placeholder="Share your toughts and musings..."
         value={Content}
         onChange={(e) => setContent(e.target.value)}

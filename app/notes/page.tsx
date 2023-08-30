@@ -1,7 +1,5 @@
-
-import styles from "./Notes.module.css";
 import CreateNote from "./CreateNote";
-
+import Note from "./Note";
 
 async function getNotes() {
   const res = await fetch(
@@ -17,7 +15,7 @@ async function getNotes() {
 
 export default async function NotesPage() {
 const notes = await getNotes();
-  console.log(notes)
+  // console.log(notes)
 
   return (
 
@@ -27,14 +25,16 @@ const notes = await getNotes();
           // ^?
           return (
             <Note
+
               key={note.id}
               note={note}
-
             />
           );
         })}
+
+        <CreateNote />
       </div>
-  
+
   );
 }
 
@@ -57,29 +57,33 @@ interface NoteProps {
     created: string;
   };
 
+//   color: {
+// backgroundColor: string;
+//   }
+
 }
 
-const Note: React.FC<NoteProps> = ({ note}) => {
-  const { id, Title, Content, created } = note;
+// const Note: React.FC<NoteProps> = ({ note }) => {
+//   const { id, Title, Content, created } = note;
 
 
-  let dateString = created;
-  let date = new Date(dateString);
-  let d = new Intl.DateTimeFormat("en-GB", {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-  }).format(date);
+//   let dateString = created;
+//   let date = new Date(dateString);
+//   let d = new Intl.DateTimeFormat("en-GB", {
+//     year: "numeric",
+//     month: "numeric",
+//     day: "numeric",
+//   }).format(date);
 
-  return (
-    <div className={styles.note}>
-      <h2>~{Title}</h2>
-      <h3>{Content}</h3>
+//   return (
+//     <div className={styles.note}>
+//       <h2>~{Title}</h2>
+//       <h3>{Content}</h3>
 
-      <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
-        <p className="text-sm text-slate-500 truncate">{d}</p>
+//       <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
+//         <p className="text-sm text-slate-500 truncate">{d}</p>
 
-      </div>
-    </div>
-  );
-};
+//       </div>
+//     </div>
+//   );
+// };

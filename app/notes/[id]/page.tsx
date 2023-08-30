@@ -21,7 +21,7 @@ export default async function NotesPage({ params }: any) {
       <div className={styles.note}>
         <h3>{note.Content}</h3>
 
-        <p className="text-sm text-green-600 truncate">{note.created}</p>
+        <p className=" text-green-600 truncate">{note.created}</p>
       </div>
 
     </div>
