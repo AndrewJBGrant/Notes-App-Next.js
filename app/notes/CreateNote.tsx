@@ -37,8 +37,10 @@ export default function CreateNote() {
 
 
   return (
-    <form className="border-2 border-indigo-600" onSubmit={create}>
+
+    <>
         <ColorPicker />
+    <form className="border-2 border-indigo-600" onSubmit={create}>
 
       <h3>Create Note component</h3>
 
@@ -56,5 +58,5 @@ export default function CreateNote() {
       />
       <button type="submit">New Note</button>
     </form>
-  );
+ </> );
 }

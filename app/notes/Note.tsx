@@ -24,6 +24,8 @@ const Note: React.FC<NoteProps> = ({ note }) => {
     day: "numeric",
   }).format(date);
 
+  console.log(d)
+
   return (
     <div className={styles.note}>
       <h2>~{Title}</h2>
