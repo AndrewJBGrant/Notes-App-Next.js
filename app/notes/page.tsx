@@ -1,21 +1,44 @@
+"use client";
+
+
+import { useEffect } from 'react';
+import { client } from '../lib/pocketbase'
 import CreateNote from "./CreateNote";
 import Note from "./Note";
 
-async function getNotes() {
-  const res = await fetch(
-    "http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30",
-    {
-      cache: "no-store",
-    }
-  );
-  const data = await res.json();
-  return data?.items as any[];
-  //                      ^?
-}
+// async function getNotes() {
+
+
+
+
+
+
+//   const res = await fetch(
+//     'http://127.0.0.1:8090/api/collections/Notes/records',
+//     {
+//       cache: "no-store",
+//     }
+//   );
+//   const data = await res.json();
+//   return data?.items as any[];
+//   //                      ^?
+// }
 
 export default async function NotesPage() {
-const notes = await getNotes();
+// const notes = await getNotes();
   // console.log(notes)
+
+
+
+useEffect(() => {
+client.collection("Notes").getFullList().then((res) => console.log(res));
+}, [])
+
+
+const notes = await client.collection("Notes").getFullList()
+
+
+
 
   return (
 
@@ -32,7 +55,7 @@ const notes = await getNotes();
           );
         })}
 
-        <CreateNote />
+        {/* <CreateNote /> */}
       </div>
 
   );
