@@ -12,13 +12,13 @@ const Todos: React.FC<{ items: Todo[]; onDeleteTodo: (id: string) => void }> = (
   }
   //          ^?
   return (
-    <ul className="w-96 bg-white rounded-xl shadow-lg grid grid-cols-1 divide-y">
+    <ul className="">
       {props.items.map((item) => (
-        <TodoItem
+       <li className="border-dotted border-2 border-indigo-600 "><TodoItem
           key={item.id}
           text={item.text}
           onDeleteTodo={props.onDeleteTodo.bind(null, item.id)}
-        />
+        /></li>
       ))}
     </ul>
   );

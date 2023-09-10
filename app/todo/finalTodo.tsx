@@ -23,11 +23,10 @@ return prevTodos.concat(newTodo)
   };
 
   return (
-    <div>
-      <h1>all my todos gonna come from here</h1>
+    <div className="flex flex-col justify-center p-8">
+      <h1>Keep track of your todos here</h1>
       <NewTodo onAddTodo={addTodoHandler} />
-      <h1 className="border-t-4 border-indigo-500">List of TODOS</h1>
-     <div><Todos items={todos} onDeleteTodo={deleteTodoHandler} /> </div>
+     <div className="border-solidd border-2 border-green-400 "><Todos items={todos} onDeleteTodo={deleteTodoHandler} /> </div>
     </div>
   );
 };

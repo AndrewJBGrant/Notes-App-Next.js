@@ -18,15 +18,13 @@ interface NoteProps {
 const Note: React.FC<NoteProps> = ({ note }) => {
   const { id, Title, Content, created } = note;
 
-  let dateString = created;
-  let date = new Date(dateString);
-  let d = new Intl.DateTimeFormat("en-GB", {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-  }).format(date);
-
-  // console.log(d)
+  // let dateString = created;
+  // let date = new Date(dateString);
+  // let d = new Intl.DateTimeFormat("en-GB", {
+  //   year: "numeric",
+  //   month: "numeric",
+  //   day: "numeric",
+  // }).format(date);
 
   return (
     <div className={styles.note}>
@@ -34,7 +32,7 @@ const Note: React.FC<NoteProps> = ({ note }) => {
       <h3>{Content}</h3>
          {/* <DeleteNote noteId={note.id} onDelete={handleNoteDelete} /> */}
       <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
-        <p className="text-sm text-slate-500 truncate">{d}</p>
+        <p className="text-sm text-slate-500 truncate">{created}</p>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
-import { ClerkProvider } from "@clerk/nextjs";
+// import { ClerkProvider } from "@clerk/nextjs";
 import FinalTodo from "./todo/finalTodo";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,21 +23,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ClerkProvider>
-        <body className="grid grid-flow-col grid-cols-3 gap-3">
-          {/* <!-- navigation --> */}
-          <header className="w-1/3 border-2 border-slate-600">
+      {/* <ClerkProvider> */}
+        <body className="grid grid-cols-9 gap-1">
+          <header className="col-span-1">
             <NavBar />
           </header>
-          <main className="col-span-3 border-2 border-rose-600">
+          {/* <!-- navigation --> */}
+          <main className="col-start-2 col-end-7">
             <span>{children}</span>
           </main>
-            <aside className="border-2 border-blue-600" >
+            <aside className="col-start-7 col-end-10">
               <Timer />
               <FinalTodo />
             </aside>
         </body>
-      </ClerkProvider>
+      {/* </ClerkProvider> */}
     </html>
   );
 }
