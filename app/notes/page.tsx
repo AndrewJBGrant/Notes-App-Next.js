@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+
+
+
 import { getNotes } from "../lib/pocketbase";
 import CreateNote from "./CreateNote";
 import Note from "./Note";
@@ -18,12 +21,16 @@ import Note from "./Note";
 // }
 
 export default async function NotesPage() {
+
   // const [notes, setNotes] = useState([])
 
   // getNotes()
   // .then((res) => console.log(res, " is this better"));
 
   const notes = await getNotes();
+
+
+
 
   console.log(notes, "good god??");
 
@@ -37,9 +44,8 @@ export default async function NotesPage() {
 
   return (
     <>
-      <h2>help me please jesus</h2>
 
-      <div className="row-span-3 grid gap-x-4 gap-y-4 grid-cols-3">
+      <div className="row-span-3 grid gap-2 grid-cols-3">
         {notes?.map((note) => {
           // ^?
           return <Note key={note.id} note={note} />;
