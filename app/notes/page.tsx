@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
 
-
-
-import { getNotes } from "../lib/pocketbase";
+import { getData } from "../lib/pocketbase";
 import CreateNote from "./CreateNote";
 import Note from "./Note";
-// import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 // async function getNotes() {
 
@@ -20,19 +17,36 @@ import Note from "./Note";
 //   //                      ^?
 // }
 
-export default async function NotesPage() {
+// async function getData() {
+// const res = await fetch('http://127.0.0.1:8090/api/collections/Notes/records')
 
+// if(!res.ok) {
+//   throw new Error("failed to fetch your data you stupid")
+// }
+// return res.json
+// }
+
+
+
+
+
+
+export default async function NotesPage() {
+const notes = await getData()
+
+
+// console.log(notes, "finally we have notes")
   // const [notes, setNotes] = useState([])
 
   // getNotes()
   // .then((res) => console.log(res, " is this better"));
 
-  const notes = await getNotes();
+  // const notes = await getNotes();
+  // console.log(notes, "good god??");
 
 
 
 
-  console.log(notes, "good god??");
 
   interface NoteProps {
     note: {
@@ -51,8 +65,8 @@ export default async function NotesPage() {
           return <Note key={note.id} note={note} />;
         })}
 
-        {/* <CreateNote /> */}
-      </div>
+</div>
+
     </>
   );
 }
