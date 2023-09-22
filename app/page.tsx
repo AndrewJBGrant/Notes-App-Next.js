@@ -1,11 +1,11 @@
-import { UserButton } from "@clerk/nextjs";
+
 import CreateNote from "./notes/CreateNote"
 
 
 export default function HomePage() {
   return (
     <div className=" justify-center p-8">
-      {/* <UserButton afterSignOutUrl="/" /> */}
+    
 
       <p>
        23/08/2023

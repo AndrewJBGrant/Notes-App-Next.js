@@ -6,8 +6,9 @@ import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
-// import { ClerkProvider } from "@clerk/nextjs";
+
 import FinalTodo from "./todo/finalTodo";
+import AuthProvider from "./AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      {/* <ClerkProvider> */}
+  return ( 
+    <AuthProvider>
+      <html lang="en">
         <body className="grid grid-cols-9 gap-1">
           <header className="col-span-1">
             <NavBar />
@@ -32,12 +33,12 @@ export default function RootLayout({
           <main className="col-start-2 col-end-7">
             <span>{children}</span>
           </main>
-            <aside className="col-start-7 col-end-10">
-              <Timer />
-              <FinalTodo />
-            </aside>
+          <aside className="col-start-7 col-end-10">
+            <Timer />
+            <FinalTodo />
+          </aside>
         </body>
-      {/* </ClerkProvider> */}
-    </html>
+      </html>
+    </AuthProvider>
   );
 }
