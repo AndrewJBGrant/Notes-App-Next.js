@@ -1,5 +1,4 @@
-// import CreateNote from "./CreateNote";
-
+import CreateNote from "./CreateNote";
 import { prisma } from '../lib/prisma';
 import Note from "./Note";
 
@@ -8,7 +7,8 @@ import Note from "./Note";
     note: {
       title: string;
       content: string;
-      authorid: string;
+      authorId: string;
+      id: string;
     };
   }
 
@@ -19,16 +19,18 @@ export default async function Notes() {
   console.log(notes)
 
   return (
-  <>
+  <div className="row-span-3 grid gap-2 grid-cols-3">
       {notes.map((note) => {
         return(
 
-          <Note />
+          <Note key={note.id} note={note}  />
 
 
         )
       })}
-    </>
+
+      <CreateNote />
+    </div>
   );
 }
 

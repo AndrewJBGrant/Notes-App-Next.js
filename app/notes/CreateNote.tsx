@@ -1,48 +1,46 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
-import { useRouter } from "next/navigation";
-import { createNote } from "../lib/pocketbase";
+import { useRef } from "react";
+import { createnoteAction } from "../_actions";
 
-// // import ColorPicker from "./ColorPicker";
+const NewNoteForm = () => {
+  const noteFormRef = useRef<HTMLFormElement>(null)
 
-export default function CreateNote() {
-  const [Title, setTitle] = useState("");
-  const [Content, setContent] = useState("");
-const router = useRouter();
+  async function noteAction(data: FormData) {
+    const title = data.get("title")
+    const content = data.get("content")
+    if (!content || typeof content !== "string") return
 
-const newNote = async() => {
-createNote(Title, Content)
-     setContent('');
-     setTitle('');
-     router.refresh();
-}
+    if(!title || typeof title !== "string") return
 
-  const titleChangehandler = (e: { target: { value: SetStateAction<string>; }; }) => {
- setTitle(e.target.value);
 
-};
+    await createnoteAction(title, content)
+
+    noteFormRef.current?.reset()
+
+
+
+  }
 
   return (
-    <>
-      {/* <ColorPicker /> */}
-      <form action={newNote}>
-        <h3>Create Note component</h3>
+<>
+<form ref={noteFormRef} action={noteAction}>
+<h2>Create A new Note</h2>
+<h3>Title</h3>
+<input type="text" name="title" id="" />
+<h3>Content</h3>
+<input type="text" name="content" id="" />
 
-        <input
-          type="text"
-          placeholder="Title"
-          value={Title}
-          onChange={titleChangehandler}
-        />
-        <textarea
-          // className="color-preview" style={{ backgroundColor: selectedColor }}
-          placeholder="Share your toughts and musings..."
-          value={Content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button type="submit">New Note</button>
-      </form>
-    </>
+<button type="submit">Create note</button>
+
+
+
+
+</form>
+
+</>
+
   );
-}
+};
+
+export default NewNoteForm;
