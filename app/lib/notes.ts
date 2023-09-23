@@ -10,3 +10,4 @@ export async function createNote(title: string, content: string) {
 
   }
 }
+

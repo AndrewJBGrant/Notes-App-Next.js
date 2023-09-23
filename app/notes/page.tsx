@@ -9,6 +9,7 @@ import Note from "./Note";
       content: string;
       authorId: string;
       id: string;
+      createdAt: DateTime;
     };
   }
 
