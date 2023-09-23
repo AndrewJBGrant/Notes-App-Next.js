@@ -1,59 +1,59 @@
-import { prisma } from "../lib/prisma";
-import { NextResponse } from "next/server";
+// import CreateNote from "./CreateNote";
 
-
-
-
-import { getData } from "../lib/pocketbase";
-import CreateNote from "./CreateNote";
+import { prisma } from '../lib/prisma';
 import Note from "./Note";
 
 
-
-
-
-
-
-
-
-
-// export const dynamic = 'force-dynamic'
-export default async function NotesPage() {
-
-
-
-
-
-
-
-
-
-// const notes = await getData()
-// console.log(notes)
-
   interface NoteProps {
     note: {
-      Title: string;
-      Content: string;
-      created: string;
+      title: string;
+      content: string;
+      authorid: string;
     };
   }
-  
+
+
+export default async function Notes() {
+  const notes = await prisma.note.findMany();
+
+  console.log(notes)
 
   return (
-    <>
-<div>
-        <CreateNote />
-        </div>
-      <div className="row-span-3 grid gap-2 grid-cols-3">
-        {/* {notes?.map((note) => {
+  <>
+      {notes.map((note) => {
+        return(
 
-          return <Note key={note.id} note={note} />;
-        })} */}
+          <Note />
 
 
-</div>
-
+        )
+      })}
     </>
   );
 }
+
+
+{/* <div className="row-span-3 grid gap-2 grid-cols-3">
+<h4>author id:{note.authorId}</h4>
+<h1>Title:{note.title}</h1>
+
+<h3>Content:{note.content}</h3>
+
+</div> */}
+//   return (
+//     <>
+// <div>
+//         <CreateNote />
+//         </div>
+//       <div className="row-span-3 grid gap-2 grid-cols-3">
+//         {/* {notes?.map((note) => {
+
+//           return <Note key={note.id} note={note} />;
+//         })} */}
+
+
+// </div>
+
+//     </>
+//   );
+// }
