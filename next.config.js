@@ -5,9 +5,10 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+module.exports = nextConfig
 
-export const experimental = {
-  serverActions: true,
+module.exports = {
+  experimental: {
+    serverActions: true,
+  },
 }
-
