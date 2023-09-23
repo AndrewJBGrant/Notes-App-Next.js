@@ -1,3 +1,4 @@
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
 
@@ -41,6 +42,9 @@ const journalPosts = [
 
 
 export async function GET() {
+
+  const serverSession = await getServerSession();
+  
   return NextResponse.json(journalPosts);
 
 }

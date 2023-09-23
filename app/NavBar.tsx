@@ -2,6 +2,7 @@
 import NavLink from "./nav-link";
 import { FaFrog, FaGhost, FaSackDollar } from "react-icons/fa6";
 import { useState } from "react";
+import { SignInButton, SignOutButton } from "./Buttons";
 //   function ServerComponent() {
 //   async function myAction() {
 //     'use server'
@@ -65,6 +66,9 @@ const NavBar = () => {
       <NavLink href="journal">
       <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
       </NavLink>
+
+      <SignInButton />
+      <SignOutButton />
     </div>
   );
 };

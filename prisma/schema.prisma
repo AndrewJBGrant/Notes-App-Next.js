@@ -1,3 +1,7 @@
+// After any updates to this file run: npx prisma migrate dev
+
+
+
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
