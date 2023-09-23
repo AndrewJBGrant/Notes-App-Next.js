@@ -3,11 +3,12 @@ import { prisma } from '../lib/prisma';
 import Note from "./Note";
 
 
+
   interface NoteProps {
     note: {
       title: string;
       content: string;
-      authorId: string;
+      author: string;
       id: string;
       createdAt: DateTime;
     };

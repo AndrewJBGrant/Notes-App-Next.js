@@ -44,7 +44,7 @@ const journalPosts = [
 export async function GET() {
 
   const serverSession = await getServerSession();
-  
+
   return NextResponse.json(journalPosts);
 
 }

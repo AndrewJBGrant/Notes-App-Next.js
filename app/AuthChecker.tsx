@@ -1,19 +1,23 @@
 "use client"
 
 import { useSession } from "next-auth/react";
+import { SignInButton } from "./Buttons";
 
 export default function AuthChecker({ children }: { children: React.ReactNode }) {
 //                                      ^?
 
 const { data: session, status } = useSession();
 
-console.log(session, status, "hello we have session status");
+console.log(session?.user.name
+,"/", status, "/hello we have session status");
 
 if (status === "authenticated") {
   return <>
-            {children}
-         </>;
+          <p>Welcome back {session.user?.name}</p>
+         </>
          } else {
-          return <>Hello You are not signed in</>;
+          return <>
+          <SignInButton />
+          </>;
          }
 }
