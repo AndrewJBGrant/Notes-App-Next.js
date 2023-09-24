@@ -9,12 +9,13 @@ interface NoteProps {
     title: string;
     content: string;
     id: string;
-    createdAt: DateTime;
+    createdAt: dateTime;
+    color: string;
   };
 }
 
 const Note: React.FC<NoteProps> = ({ note }) => {
-  const { id, user, title, content, createdAt } = note;
+  const { color, user, title, content, createdAt } = note;
 
   // console.log(createdAt, "date")
 
@@ -25,7 +26,8 @@ let dateString = createdAt.toLocaleDateString()
 
 
   return (
-    <div className={styles.note}>
+    <div className={styles.note} style={{ backgroundColor: note.color }}>
+      <h4>{color}</h4>
       <h2>~{title}</h2>
       <h3>{content}</h3>
 <h4>{user}</h4>

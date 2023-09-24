@@ -11,6 +11,7 @@ import Note from "./Note";
       author: string;
       id: string;
       createdAt: DateTime;
+      color: string;
     };
   }
 

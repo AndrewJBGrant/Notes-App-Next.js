@@ -41,8 +41,8 @@ model User {
   age           Int?
   email         String?   @unique
   emailVerified DateTime?
-  accounts      Account[]
   image         String?
+  accounts      Account[]
   notes         Note[]
   sessions      Session[]
 }
@@ -56,11 +56,11 @@ model VerificationToken {
 }
 
 model Note {
-  id       String  @id @default(cuid())
-  title    String
-  content  String?
-  authorId String?
-  author   User?   @relation(fields: [authorId], references: [id])
-
-  createdAt  DateTime   @default(now())
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  authorId  String?
+  createdAt DateTime @default(now())
+  color     String?
+  author    User?    @relation(fields: [authorId], references: [id])
 }
