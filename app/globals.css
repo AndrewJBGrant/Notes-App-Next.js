@@ -82,8 +82,14 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
-
+/*
 .color-select {
 height: 20px;
 width: 20px;
-}
+} */
+/* 
+#color-3 {
+  accent-color: red;
+  background-color: yellow;
+  color: green;
+} */

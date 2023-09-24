@@ -20,8 +20,8 @@ const Note: React.FC<NoteProps> = ({ note }) => {
   // console.log(createdAt, "date")
 
 
-  console.log(createdAt.toLocaleDateString());
-let dateString = createdAt.toLocaleDateString()
+//   console.log(createdAt.toLocaleDateString());
+ let dateString = createdAt.toLocaleDateString()
 
 
 

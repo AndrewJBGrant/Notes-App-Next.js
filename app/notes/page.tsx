@@ -19,7 +19,7 @@ import Note from "./Note";
 export default async function Notes() {
   const notes = await prisma.note.findMany();
 
-  console.log(notes)
+  // console.log(notes)
 
   return (
   <div className="row-span-3 grid gap-2 grid-cols-3">
