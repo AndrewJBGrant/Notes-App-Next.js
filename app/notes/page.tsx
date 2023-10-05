@@ -8,9 +8,8 @@ import Note from "./Note";
     note: {
       title: string;
       content: string;
-      author: string;
       id: string;
-      createdAt: DateTime;
+      createdAt: Date;
       color: string;
     };
   }
@@ -19,11 +18,11 @@ import Note from "./Note";
 export default async function Notes() {
   const notes = await prisma.note.findMany();
 
-  console.log(notes)
+  // console.log(notes)
 
   return (
   <div className="row-span-3 grid gap-2 grid-cols-3">
-      {notes.map((note) => {
+      {notes?.map((note) => {
         return(
 
           <Note key={note.id} note={note}  />

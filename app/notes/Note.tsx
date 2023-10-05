@@ -1,27 +1,32 @@
-
+"use client"
+import { getSession, useSession } from 'next-auth/react';
 import styles from "./Notes.module.css";
 
 
 
 interface NoteProps {
   note: {
-    user: string;
     title: string;
     content: string;
     id: string;
-    createdAt: dateTime;
+    createdAt: Date;
     color: string;
   };
 }
 
-const Note: React.FC<NoteProps> = ({ note }) => {
-  const { color, user, title, content, createdAt } = note;
+
+const Note: React.FC<NoteProps> = ( { note }, props ) => {
+ const { data: session, status } = useSession();
+ // console.log( session, "taken from getSession")
+  const { color, title, content, createdAt } = note;
 
   // console.log(createdAt, "date")
 
 
-  console.log(createdAt.toLocaleDateString());
-let dateString = createdAt.toLocaleDateString()
+//   console.log(createdAt.toLocaleDateString());
+ let dateString = createdAt.toLocaleDateString()
+
+  const noteBelongsToUser = session?.user?.email === props.author?.email;
 
 
 
@@ -30,10 +35,19 @@ let dateString = createdAt.toLocaleDateString()
       <h4>{color}</h4>
       <h2>~{title}</h2>
       <h3>{content}</h3>
-<h4>{user}</h4>
+       <p>By {props?.author?.name || 'Unknown author'}</p>
+
+ {noteBelongsToUser && (
+          <p>{props.author?.email}</p>
+        )}
+
+
+
+{/* <h4>{session?.user?.name}</h4> */}
+
 
       <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
-        <p className="text-sm text-slate-500 truncate">{dateString}</p>
+        {/* <p className="text-sm text-slate-500 truncate">{dateString}</p> */}
       </div>
 
     </div>

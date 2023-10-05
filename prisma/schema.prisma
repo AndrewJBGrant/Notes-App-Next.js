@@ -28,15 +28,15 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           Int   @id @default(autoincrement())
   sessionToken String   @unique
-  userId       String
+  userId       String     @unique
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation("UserSessions", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id    String    @id @default(cuid())
   name          String?
   age           Int?
   email         String?   @unique
@@ -44,7 +44,7 @@ model User {
   image         String?
   accounts      Account[]
   notes         Note[]
-  sessions      Session[]
+  sessions      Session[] @relation("UserSessions")
 }
 
 model VerificationToken {
@@ -56,11 +56,11 @@ model VerificationToken {
 }
 
 model Note {
-  id        String   @id @default(cuid())
+  id        String  @id @default(cuid())
   title     String
   content   String?
   authorId  String?
   createdAt DateTime @default(now())
   color     String?
-  author    User?    @relation(fields: [authorId], references: [id])
+  author    User? @relation(fields: [authorId], references: [id])
 }
