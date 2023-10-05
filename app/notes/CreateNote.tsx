@@ -82,7 +82,6 @@ noteFormRef.current?.reset()
 
 <button type="submit">Create note</button>
 </form>
-
 </>
   );
 };
