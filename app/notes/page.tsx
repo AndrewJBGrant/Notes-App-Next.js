@@ -1,63 +1,44 @@
 import CreateNote from "./CreateNote";
-import { prisma } from '../lib/prisma';
-import Note from "./Note";
+import { prisma } from "../lib/prisma";
+import Note, { NoteProps } from "./Note";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
+export default async function NotesPage() {
+  const session = await getServerSession(authOptions);
+  console.log(session?.user?.name);
+  const noteFeed = await prisma.note.findMany({
+    where: {
+      author: { email: session?.user?.email },
+    },
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
+  //console.log(noteFeed)
 
-  interface NoteProps {
-    note: {
-      title: string;
-      content: string;
-      id: string;
-      createdAt: Date;
-      color: string;
-    };
-  }
+  type Props = {
+    noteFeed: NoteProps[];
+  };
 
-
-export default async function Notes() {
-  const notes = await prisma.note.findMany();
-
-  // console.log(notes)
+  const currentUser = session?.user?.name;
 
   return (
-  <div className="row-span-3 grid gap-2 grid-cols-3">
-      {notes?.map((note) => {
-        return(
-
-          <Note key={note.id} note={note}  />
-
-
-        )
-      })}
-
-      <CreateNote />
-    </div>
+    <>
+      <h1>Hello {currentUser}</h1>
+      <div className="row-span-3 grid gap-2 grid-cols-3">
+        {noteFeed?.map((noteFeed) => {
+          return <Note key={noteFeed.id} note={noteFeed} />;
+        })}
+        ;
+        <CreateNote />
+      </div>
+    </>
   );
-}
-
-
-{/* <div className="row-span-3 grid gap-2 grid-cols-3">
-<h4>author id:{note.authorId}</h4>
-<h1>Title:{note.title}</h1>
-
-<h3>Content:{note.content}</h3>
-
-</div> */}
-//   return (
-//     <>
-// <div>
-//         <CreateNote />
-//         </div>
-//       <div className="row-span-3 grid gap-2 grid-cols-3">
-//         {/* {notes?.map((note) => {
-
-//           return <Note key={note.id} note={note} />;
-//         })} */}
-
-
-// </div>
-
-//     </>
-//   );
-// }
+};

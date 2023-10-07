@@ -1,22 +1,25 @@
-import { getSession } from 'next-auth/react';
 import { prisma } from "./prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export async function createNote(
   title: string,
   content: string,
   color: string,
 ) {
+  const session = await getServerSession(authOptions);
   try {
-     const session = await getSession({  });
+
     const note = await prisma.note.create({
       data: {
         title,
         content,
         color,
-        author: { connect: { email: session?.user?.email}}
+         author: { connect: { email: session?.user?.email! } },
       },
     });
-        console.log(note.authorId, "looking for the author id of the note")
+
+    //console.log(note, "coming from notes.ts")
     return { note };
   } catch (error) {
     console.log(error, "check the methods");

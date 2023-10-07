@@ -1,9 +1,12 @@
 "use client";
 
+
+
 import { useRef } from "react";
 import { createnoteAction } from "../_actions";
 import { SetStateAction, useState } from "react";
 import Users from "../users/page";
+import { prisma } from "../lib/prisma";
 
 
 
@@ -21,13 +24,15 @@ const NewNoteForm = () => {
     const title = data.get("title")
     const content = data.get("content")
     const color = data.get("color")
- 
+
     if (!content || typeof content !== "string") return
     if(!title || typeof title !== "string") return
     if(!color || typeof color !== "string") return
 
-    await createnoteAction(title, content, color)
-    // console.log(title, content, color)
+   await createnoteAction(title, content, color)
+
+
+   console.log(title, content, color, "coming from createNote.tsx")
 noteFormRef.current?.reset()
 
 
