@@ -7,8 +7,8 @@ export async function createNote(
   content: string,
   color: string,
 ) {
-  const session = await getServerSession(authOptions);
   try {
+  const session = await getServerSession(authOptions);
 
     const note = await prisma.note.create({
       data: {
@@ -28,22 +28,25 @@ export async function createNote(
 }
 
 
-// POST /api/post
-// Required fields in body: title
-// Optional fields in body: content
-// export async function handleNewNote(req, res) {
-//   console.log(req, res, "are we seeing anything here??")
-//   const { title, content, color } = req.body;
+export async function deleteNote(noteId: string) {
+  // First, check if the note exists
+  const note = await prisma.note.findUnique({
+    where: {
+      id: noteId,
+    },
+  });
 
-//   const session = await getSession({ req });
-//   const result = await prisma.note.create({
-//     data: {
-//       title: title,
-//       content: content,
-//       color: color,
-//       author: { connect: { name: session?.user?.name } },
-//     },
-//   });
-//   res.json(result);
-//   console.log(result, "trying to add user id on creation")
-// }
+  // If the note doesn't exist, throw an error or handle this case as needed
+  if (!note) {
+    throw new Error('Note not found');
+
+  }
+// If the note exists, proceed with the deletion
+const deletedNote = await prisma.note.delete({
+
+  where: {
+    id: noteId,
+    },
+  })
+return { deletedNote }
+}

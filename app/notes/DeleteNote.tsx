@@ -1,54 +1,30 @@
-"use client"
 
-import { deleteNote } from "../lib/pocketbase";
-
-// import { useRouter } from "next/router";
+import { deletenoteAction } from "../_actions";
 
 
-// interface NoteDeleteProps {
-//   noteId: string;
-//   onDelete: (noteId: string) => void;
-// }
-
-// function DeleteNote: React.FC<NoteDeleteProps> = ({ noteId: string, onDelete }) {
-
-//   // const router = useRouter();
-// const handleDeleteClick = () => {
-//   onDelete(noteId);
-// }
+// import { NoteProps } from "./Note";
 
 
 
-// const handleNoteDelete = async () => {
-//   try {
-//     const response = await fetch(`http://127.0.0.1:8090/api/collections/Notes/records/${noteId}`, {
-//   method: 'DELETE',
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
+interface NoteDeleteProps {
+  noteId: string;
+};
 
-// })
+const DeleteNote: React.FC<NoteDeleteProps> = ({noteId}) => {
 
+  async function handleDeleteNote ()  {
+ await deletenoteAction(noteId)
+ console.log(noteId, "Coming from the delete note page")
+  }
 
-//    if (response.ok) {
-//       console.log('Note deleted successfully');
-//     } else {
-//       console.error('Error deleting note Christ');
-//     }
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-// };
+return(
+  <>
+  <button onClick={handleDeleteNote}>
+  DeleteNote
+</button>
+</>
+);
 
-function DeleteNote = () => {
-
-return (
-  <button onClick={() => deleteNote(note.id)}>Delete note</button>
-)
-
-
-}
-
-
+};
 
 export default DeleteNote;

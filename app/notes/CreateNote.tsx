@@ -1,18 +1,11 @@
 "use client";
 
-
-
 import { useRef } from "react";
 import { createnoteAction } from "../_actions";
-import { SetStateAction, useState } from "react";
-import Users from "../users/page";
-import { prisma } from "../lib/prisma";
-
-
+import styles from "./Notes.module.css";
 
 
 const NewNoteForm = () => {
-
 
   const colorOptions = ["#EF5D60", "#FFD046", "#A01A7D"];
 
@@ -44,38 +37,19 @@ noteFormRef.current?.reset()
 //     console.log(color);
 //   };
 
-
-
-
-
-
-
-
-
-  return (
+return (
 <>
-
 <form ref={noteFormRef} action={noteAction}>
-
-<h2>Create A new Note</h2>
-<h3>Title</h3>
-<input type="text" name="title" id="" />
-<h3>Content</h3>
-<input type="text" name="content" id="" />
-
-
-
+<div className={styles.note}>
+  <div className="flex  w-8 h-8">
 <input name="color" type="radio" value="#EF5D60"/>
 <input name="color" type="radio" value="#FFD046"/>
 <input name="color" type="radio" value="#A01A7D"/>
-
-
-
-
-
-
-
-     {/* <div className="border-2 border-indigo-600">
+</div>
+<input type="text" name="title" id="" placeholder="Title..."/>
+<textarea name="content" id="" placeholder="Content.." />
+</div>
+{/* <div className="border-2 border-indigo-600">
         {colorOptions.map((color) => (
           <button name="color" type="button"
             key={color}
@@ -83,8 +57,6 @@ noteFormRef.current?.reset()
           />
         ))}
       </div> */}
-
-
 <button type="submit">Create note</button>
 </form>
 </>

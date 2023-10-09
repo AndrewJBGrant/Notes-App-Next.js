@@ -5,10 +5,11 @@
 }
 
 .note {
-  height: 240px;
-  width: 220px;
+  height: 260px;
+  width: 240px;
   padding: 0.2rem 1rem;
   margin: 0.5rem;
+  overflow: hidden;
 
   box-shadow: 4px 4px 8px 1px #00000075;
   border-radius: 2px;
