@@ -22,15 +22,15 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
     function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     console.log(e.target.value);
   }
-
   return (
     <>
       <div className={styles.note} style={{ backgroundColor: note.color }}>
-        <h4>{note.color}</h4>
-        <textarea contentEditable="true" suppressContentEditableWarning={true} onChange={handleChange} defaultValue={note.title}/>
+        {/* <h4>{note.color}</h4> */}
+
+        <div className="text-area">
+        <textarea   style={{ backgroundColor: note.color }} contentEditable="true" suppressContentEditableWarning={true} onChange={handleChange}>{note.title}</textarea>
+       </div>
         <h3 contentEditable="true" suppressContentEditableWarning={true} >{note.content}</h3>
-        <p>By {authorName}</p>
-        <p>{note.id}</p>
         <DeleteNote noteId={note.id} />
 
 
