@@ -9,7 +9,7 @@ const ColorPicker = () => {
 
   const changeStyle = (color: SetStateAction<string>) => {
     setSelectedColor(color);
-    console.log(color);
+    console.log(color, "coming from color picker!!!");
   };
   return (
     <>
@@ -17,11 +17,14 @@ const ColorPicker = () => {
       <div className="border-2 border-indigo-600">
         {colorOptions.map((color) => (
           <button
+          type="button"
             className={`color-select ${
               color === selectedColor ? "selected" : ""
             }`}
             key={color}
-            style={{ backgroundColor: color }}
+            name="color"
+            style={{ height: 30,
+              width: 30, backgroundColor: color }}
             onClick={() => changeStyle(color)}
           />
         ))}
