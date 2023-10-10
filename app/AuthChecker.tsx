@@ -17,7 +17,7 @@ if (status === "authenticated") {
           <p>Welcome back {session.user?.name}</p>
           <p>Will expire: {session.expires}</p>
           <p>email:{session.user?.email}</p>
-         
+
 
          </>
          } else {

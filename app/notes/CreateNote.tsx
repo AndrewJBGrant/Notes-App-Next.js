@@ -3,10 +3,12 @@
 import { useRef, useState } from "react";
 import { createnoteAction } from "../_actions";
 import styles from "./Notes.module.css";
-import ColorPicker from "./ColorPicker";
+
 
 const NewNoteForm = () => {
   const colorOptions = ["#EEFF55", "#FFFFDD", "#A01A7D"];
+
+  const [selectedColor, setSelectedColor] = useState("white");
 
   const noteFormRef = useRef<HTMLFormElement>(null);
   async function noteAction(data: FormData) {
@@ -27,7 +29,7 @@ const NewNoteForm = () => {
   return (
     <>
       <form ref={noteFormRef} action={noteAction}>
-        <div className={styles.note}>
+        <div className={styles.note} style={{background: selectedColor}}>
         <div className="flex">
 
            {colorOptions.map((color) => (
@@ -36,7 +38,8 @@ const NewNoteForm = () => {
   type={"radio"}
   value={color}
   style={{ height: 18, width: 18, backgroundColor: color}}
-  name={"color"} />
+  name={"color"}
+  onClick={() => setSelectedColor(color)} />
 )
 )}
 

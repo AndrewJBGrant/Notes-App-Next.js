@@ -50,3 +50,31 @@ const deletedNote = await prisma.note.delete({
   })
 return { deletedNote }
 }
+
+export async function editNote(
+  title: string,
+  content: string,
+  color: string,
+  noteId: string
+) {
+  try {
+
+    const editedNote = await prisma.note.update({
+  where: {
+    id: noteId,
+    },
+
+      data: {
+        title,
+        content,
+        color,
+      },
+    });
+
+    console.log(editedNote, "coming from notes.ts")
+    return { editedNote };
+  } catch (error) {
+    console.log(error, "check the methods");
+    return { error };
+  }
+}
