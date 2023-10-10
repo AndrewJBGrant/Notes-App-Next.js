@@ -1,5 +1,5 @@
 "use client";
-
+import { useRef } from "react";
 import DeleteNote from "./DeleteNote";
 import EditNote from "./EditNote";
 import styles from "./Notes.module.css";
@@ -20,17 +20,18 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
   //   console.log(createdAt.toLocaleDateString());
   // let dateString = createdAt.toLocaleDateString()
 
-  //   function handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    // const NoteEditRef = useRef<HTMLTextAreaElement>({note.title});
 
-  //   console.log(e.target.value);
-  // }
+    // const enteredText = (NoteEditRef.current! as HTMLTextAreaElement).value;
+
+    // console.log(enteredText, "in Note.tsx looking at useRef")
   return (
     <>
       <div className={styles.note} style={{ backgroundColor: note.color }}>
         {/* <h4>{note.color}</h4> */}
 
         <div className="text-area">
-        <EditNote noteid={note.id} color={note.color} title={note.title} content={note.content} onChange={function (e: any): void {
+        <EditNote noteid={note.id} title={note.title} content={note.content} onChange={function (e: any): void {
             throw new Error("Function not implemented.");
           } }/>
        </div>

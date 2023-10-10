@@ -4,7 +4,9 @@
 
 import { revalidatePath } from "next/cache";
 import { createNote, deleteNote, editNote } from "./lib/notes"
+import { createTodo } from "./lib/todos";
 
+// Note Actions
 export async function createnoteAction(title: string, content: string, color: string) {
   await createNote(title, content, color);
   revalidatePath('/app/notes/page')
@@ -15,7 +17,13 @@ export async function deletenoteAction(noteId: string) {
   revalidatePath('/app/notes/page')
 }
 
+export async function editNoteAction(noteId: string, title: string, content: string) {
+  await editNote(noteId, title, content);
+  revalidatePath('/app/notes/page')
+}
 
-export async function editNoteAction(noteId: string, title: string, content: string, color: string) {
-  await editNote(noteId, title, content, color);
+// Todo Actions
+export async function createTodoAction(content:string) {
+await createTodo(content);
+revalidatePath('/app/todo/TodoPage')
 }

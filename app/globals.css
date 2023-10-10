@@ -115,3 +115,15 @@ input[type="radio"]:checked::before {
 }
 
 
+    .todo {
+          background: white;
+          transition: box-shadow 0.1s ease-in;
+        }
+
+        .todo:hover {
+          box-shadow: 1px 1px 3px #aaa;
+        }
+
+        .todo + .todo {
+          margin-top: 2rem;
+        }

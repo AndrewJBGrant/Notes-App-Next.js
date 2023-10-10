@@ -7,7 +7,7 @@ import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
 
-import FinalTodo from "./todo/finalTodo";
+import FinalTodo from "./todo/TodoPage";
 import AuthProvider from "./AuthProvider";
 import { getServerSession } from "next-auth";
 

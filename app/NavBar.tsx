@@ -10,7 +10,7 @@ import { SignInButton, SignOutButton } from "./Buttons";
 //   }
 // }
 
-function getDate() {
+ export function getDate() {
   const today = new Date();
   const month = today.getMonth() + 1;
   const year = today.getFullYear();
@@ -35,8 +35,6 @@ function getDate() {
 //   const time = Math.floor(Date.now() / 1000)
 // return (
 // )
-
-// }
 
 
 const NavBarIcon = ({ icon, title, text }: any) => (

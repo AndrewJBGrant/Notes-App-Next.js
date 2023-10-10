@@ -8,8 +8,7 @@ import { editNoteAction } from "../_actions";
 
 
 interface NoteEditProps {
-  noteId: string;
-  color: string;
+  noteid: string;
   title: string;
   content: string;
   onChange: (e?: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -19,7 +18,8 @@ const EditNote: React.FC<NoteEditProps> = (props: NoteEditProps) => {
 
 
   async function handleEditNote()  {
- await editNoteAction(props.color, props.title, props.content, props.noteId)
+    console.log(props.title)
+ await editNoteAction(props.title, props.content, props.noteid)
 
  console.log("Coming from the edit note page")
   }

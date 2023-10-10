@@ -54,7 +54,6 @@ return { deletedNote }
 export async function editNote(
   title: string,
   content: string,
-  color: string,
   noteId: string
 ) {
   try {
@@ -67,7 +66,6 @@ export async function editNote(
       data: {
         title,
         content,
-        color,
       },
     });
 

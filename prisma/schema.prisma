@@ -44,6 +44,7 @@ model User {
   image         String?
   accounts      Account[]
   notes         Note[]
+  todos         Todo[]
   sessions      Session[] @relation("UserSessions")
 }
 
@@ -62,5 +63,13 @@ model Note {
   authorId  String?
   createdAt DateTime @default(now())
   color     String?
+  author    User? @relation(fields: [authorId], references: [id])
+}
+
+model Todo {
+  id        String  @id @default(cuid())
+  content   String?
+  authorId  String?
+  createdAt DateTime @default(now())
   author    User? @relation(fields: [authorId], references: [id])
 }
