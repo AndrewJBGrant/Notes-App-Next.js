@@ -45,6 +45,7 @@ model User {
   accounts      Account[]
   notes         Note[]
   todos         Todo[]
+  journals      Journal[]
   sessions      Session[] @relation("UserSessions")
 }
 
@@ -68,6 +69,15 @@ model Note {
 
 model Todo {
   id        String  @id @default(cuid())
+  content   String?
+  authorId  String?
+  createdAt DateTime @default(now())
+  author    User? @relation(fields: [authorId], references: [id])
+}
+
+model Journal {
+  id        String  @id @default(cuid())
+  title     String
   content   String?
   authorId  String?
   createdAt DateTime @default(now())
