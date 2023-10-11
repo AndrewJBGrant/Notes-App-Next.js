@@ -23,3 +23,27 @@ export async function createTodo(
     return { error };
   }
 }
+
+
+export async function deleteTodo(todoId: string) {
+  // First, check if the note exists
+  const todo = await prisma.todo.findUnique({
+    where: {
+      id: todoId,
+    },
+  });
+
+  // If the note doesn't exist, throw an error or handle this case as needed
+  if (!todo) {
+    throw new Error('Todo not found');
+
+  }
+// If the note exists, proceed with the deletion
+const deletedTodo = await prisma.todo.delete({
+
+  where: {
+    id: todoId,
+    },
+  })
+return { deletedTodo }
+}

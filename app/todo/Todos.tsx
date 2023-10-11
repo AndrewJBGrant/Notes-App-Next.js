@@ -1,27 +1,37 @@
-import { Todo } from "../models/todo";
-import TodoItem from "./TodoItem";
+"use client";
+import DeleteTodo from "./DeleteTodo";
+
+
+export type TodoProps = {
+  id: string;
+  content: string;
+    author: {
+    name: string;
+    email: string;
+  } | null;
+}
+
+const Todo: React.FC<{ todo: TodoProps }> = ({ todo }) => {
 
 
 
-const Todos: React.FC<{ items: Todo[]; onDeleteTodo: (id: string) => void }> = (
-  props
-) => {
+return (
+  <>
 
-    if (props.items.length === 0) {
-    return <h2>No Todos for today</h2>;
-  }
-  //          ^?
-  return (
-    <ul className="">
-      {props.items.map((item) => (
-       <li className="border-dotted border-2 border-indigo-600 "><TodoItem
-          key={item.id}
-          text={item.text}
-          onDeleteTodo={props.onDeleteTodo.bind(null, item.id)}
-        /></li>
-      ))}
-    </ul>
-  );
+
+      <div className="row-span-3 grid gap-2 grid-cols-3">
+
+
+            <div className="todo gap-2">
+              <p>{todo.content}</p>
+              <DeleteTodo todoId={todo.id} />
+              </div>
+
+      </div>
+  </>
+)
+
+
 };
 
-export default Todos;
+export default Todo;
