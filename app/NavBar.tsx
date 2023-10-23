@@ -59,10 +59,13 @@ const NavBar = () => {
        <NavBarIcon title={"Home"} text={"Home"} />
       </NavLink>
       <NavLink href="notes">
-        <NavBarIcon text={"Write down a quick notes"} title={"Notes"} />
+        <NavBarIcon text={"Write down some quick notes"} title={"Notes"} />
       </NavLink>
       <NavLink href="journal">
       <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
+      </NavLink>
+      <NavLink href="search">
+        <NavBarIcon title={"Search"} text={"get your search on"}/>
       </NavLink>
 
       <SignInButton />
