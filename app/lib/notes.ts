@@ -5,17 +5,17 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 export async function createNote(
   title: string,
   content: string,
-  color: string,
+  color: string
 ) {
   try {
-  const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions);
 
     const note = await prisma.note.create({
       data: {
         title,
         content,
         color,
-         author: { connect: { email: session?.user?.email! } },
+        author: { connect: { email: session?.user?.email! } },
       },
     });
 
@@ -27,7 +27,6 @@ export async function createNote(
   }
 }
 
-
 export async function deleteNote(noteId: string) {
   // First, check if the note exists
   const note = await prisma.note.findUnique({
@@ -38,30 +37,23 @@ export async function deleteNote(noteId: string) {
 
   // If the note doesn't exist, throw an error or handle this case as needed
   if (!note) {
-    throw new Error('Note not found');
-
+    throw new Error("Note not found");
   }
-// If the note exists, proceed with the deletion
-const deletedNote = await prisma.note.delete({
-
-  where: {
-    id: noteId,
+  // If the note exists, proceed with the deletion
+  const deletedNote = await prisma.note.delete({
+    where: {
+      id: noteId,
     },
-  })
-return { deletedNote }
+  });
+  return { deletedNote };
 }
 
-export async function editNote(
-  title: string,
-  content: string,
-  noteId: string
-) {
+export async function editNote(title: string, content: string, noteId: string) {
   try {
-
     const editedNote = await prisma.note.update({
-  where: {
-    id: noteId,
-    },
+      where: {
+        id: noteId,
+      },
 
       data: {
         title,
@@ -69,10 +61,30 @@ export async function editNote(
       },
     });
 
-    console.log(editedNote, "coming from notes.ts")
+    console.log(editedNote, "coming from notes.ts");
     return { editedNote };
   } catch (error) {
     console.log(error, "check the methods");
     return { error };
   }
 }
+
+
+export async function noteSearch() {
+const searchTerm = "";
+const searchNotes = await prisma.note.findMany({
+  where: {
+    title: {
+      search: searchTerm,
+    },
+    content: {
+      search: searchTerm,
+    },
+    color: {
+      search: searchTerm,
+    },
+  },
+});
+console.log(searchTerm, "search Term", searchNotes, "coming from notes.ts")
+return { searchNotes }
+};

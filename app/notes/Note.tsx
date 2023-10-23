@@ -31,9 +31,10 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
         {/* <h4>{note.color}</h4> */}
 
         <div className="text-area">
-        <EditNote noteid={note.id} title={note.title} content={note.content} onChange={function (e: any): void {
+        {/* <EditNote noteid={note.id} title={note.title} content={note.content} onChange={function (e: any): void {
             throw new Error("Function not implemented.");
-          } }/>
+          } }/> */}
+          <span>{note.title}///{note.content}</span>
        </div>
 
 

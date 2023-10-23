@@ -12,6 +12,7 @@ import AuthProvider from "./AuthProvider";
 import { getServerSession } from "next-auth";
 import SearchInput from "./SearchInput";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 const numbers = ["1","3","4"];
@@ -34,7 +35,8 @@ export default function RootLayout({
           <header className="col-span-1">
             <NavBar />
           </header>
-          <SearchInput />       
+        
+
           {/* <!-- navigation --> */}
           <main className="col-start-2 col-end-7">
             <span>{children}</span>

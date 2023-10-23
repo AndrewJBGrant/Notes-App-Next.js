@@ -3,6 +3,7 @@ import { prisma } from "../lib/prisma";
 import Note, { NoteProps } from "./Note";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import SearchInput from "../SearchInput";
 
 export default async function NotesPage() {
   const session = await getServerSession(authOptions);
@@ -21,6 +22,22 @@ export default async function NotesPage() {
     },
   });
 
+const NoteSearch = await prisma.note.findMany({
+ where: {
+    // title: {
+    //   search: "test",
+    // },
+    content: {
+      search: "prisma",
+    },
+   // color: {
+    //   search: searchTerm,
+    // },
+  },
+
+
+})
+
   //console.log(noteFeed)
 
   type Props = {
@@ -34,6 +51,8 @@ export default async function NotesPage() {
   return (
     <>
       <h1>Welcome back {firstName![0]}'s notes all here</h1>
+<SearchInput />
+
       <div className="row-span-3 grid gap-2 grid-cols-3">
         <CreateNote />
         {noteFeed?.map((noteFeed) => {
@@ -41,6 +60,11 @@ export default async function NotesPage() {
         })}
 
       </div>
+
+      <h2>Search feed</h2>
+      {NoteSearch?.map((noteFeed) => {
+        return <Note key={noteFeed.id} note={noteFeed} />;
+      })}
     </>
   );
 };
