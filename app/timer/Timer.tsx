@@ -6,11 +6,8 @@ const Timer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(time);
   const [running, setIsRunning] = useState(false);
 
-  const [color, setColor] = useState("green");
 
-  const click = (color: string) => {
-    setColor(color);
-  };
+
 
   useEffect(() => {
     if (running) {
