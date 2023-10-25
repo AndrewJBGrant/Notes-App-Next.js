@@ -3,8 +3,6 @@
 import { useRef, useState } from "react";
 import { createTodoAction } from "../_actions";
 
-// import { useRef } from "react";
-
 // // Defing a function type onAddTodo
 // const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 //   //                                         ^?
@@ -39,8 +37,6 @@ import { createTodoAction } from "../_actions";
 //   );
 // };
 
-// export default NewTodo;
-
 const NewTodoForm = () => {
 
   const todoFormRef = useRef<HTMLFormElement>(null);
@@ -57,10 +53,17 @@ const NewTodoForm = () => {
 
   return (
     <>
-      <form ref={todoFormRef} action={noteAction}>
-        <input name="content" id="" placeholder="Content.." />
-        <button type="submit">Add Todo</button>
-      </form>
+
+
+<form className="w-full max-w-sm" ref={todoFormRef} action={noteAction} >
+  <div className="flex items-center border-b border-teal-500 py-2">
+    <input placeholder="Add Todo.." name="content" className="appearance-none bg-transparent border-none w-full text-gray-700 py-1 leading-tight focus:outline-none" />
+    <button type="submit" className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
+      ADD
+    </button>
+
+ </div>
+</form>
     </>
   );
 };

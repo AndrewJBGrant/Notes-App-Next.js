@@ -4,6 +4,7 @@ import Note, { NoteProps } from "./Note";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import SearchInput from "../SearchInput";
+import SearchTest from "../SearchTest";
 
 export default async function NotesPage() {
   const session = await getServerSession(authOptions);
@@ -51,7 +52,7 @@ const NoteSearch = await prisma.note.findMany({
   return (
     <>
       <h1>Welcome back {firstName![0]}'s notes all here</h1>
-<SearchInput />
+{/* <SearchInput /> */}
 
       <div className="row-span-3 grid gap-2 grid-cols-3">
         <CreateNote />
@@ -62,6 +63,8 @@ const NoteSearch = await prisma.note.findMany({
       </div>
 
       <h2>Search feed</h2>
+{/* <SearchTest onSearch={}/> */}
+
       {NoteSearch?.map((noteFeed) => {
         return <Note key={noteFeed.id} note={noteFeed} />;
       })}
