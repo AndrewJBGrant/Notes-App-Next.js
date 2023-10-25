@@ -68,7 +68,7 @@ const NavBar = () => {
         <NavBarIcon title={"Search"} text={"get your search on"}/>
       </NavLink>
 
-      <SignInButton />
+   
       <SignOutButton />
     </div>
   );

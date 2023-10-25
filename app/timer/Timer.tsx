@@ -1,10 +1,35 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
+import { GlobalStyles } from "../theme/GlobalStyles";
+
+import { ThemeProvider } from "styled-components";
+import {
+focus,
+short,
+long,
+} from "../theme/Theme.styled"
+
+import { ThemeContainer } from "../theme/ThemeSwitching.styled";
 
 const Timer: React.FC = () => {
   const [time, setTime] = useState(1500);
   const [timeLeft, setTimeLeft] = useState(time);
   const [running, setIsRunning] = useState(false);
+
+// Theme Switching
+  const [selectedTheme, setSelectedTheme] = useState(focus);
+
+
+
+  const HandleThemeChange = (theme: SetStateAction<{ name: string; colors: { background: string; border: string; }; }>) => {
+    setSelectedTheme(theme)
+  };
+
+  const handleTimeOption = (time: number) => {
+    setTime(time);
+    setTimeLeft(time);
+  };
+
 
 
 
@@ -19,14 +44,12 @@ const Timer: React.FC = () => {
     }
   }, [running]);
 
-  const handleTimeOption = (time: number) => {
-    setTime(time);
-    setTimeLeft(time);
-  };
   // console.log("hello there");
 
   return (
-    <div className="bg-[#DA775D] text-[#FAF5ED] rounded m-8 w-full max-w-sm border">
+    <ThemeProvider theme={selectedTheme}>
+      <GlobalStyles />
+    <ThemeContainer>
       <div className="flex flex-col justify-center p-8">
         <h1 className="flex justify-center text-8xl">
           {Math.floor(timeLeft / 60)}:
@@ -42,31 +65,35 @@ const Timer: React.FC = () => {
       </div>
 
 
-{/* <div className="inline-flex" role="group" aria-label="Button group">
-  <button className="h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-l-lg focus:shadow-outline hover:bg-indigo-800">Left</button>
-  <button className="h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 focus:shadow-outline hover:bg-indigo-800">Middle</button>
-  <button className="h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-r-lg focus:shadow-outline hover:bg-indigo-800">Right</button>
-</div> */}
-
-
-
-
 
 
       <div className="text-xl grid grid-cols-3 divide-x">
-        <button className="transition-colors duration-150 bg focus:shadow-outline hover:bg-indigo-800"
-          onClick={(event) => {
-            console.log("hello");
-            handleTimeOption(1500);
+        <button
+          className={`focus ${selectedTheme === focus ? "active" : ""}`}
+          onClick={() => {
+            {handleTimeOption(1500);
+            HandleThemeChange(focus);}
           }}
         >
-          {" "}
+
           Focus
         </button>
-        <button onClick={() => handleTimeOption(300)}> Short Break</button>
-        <button onClick={() => handleTimeOption(900)}> Long Break</button>
+
+        <button className={`short ${selectedTheme === short ? "active" : ""}`}onClick={() => {handleTimeOption(300);
+
+
+        HandleThemeChange(short);}}>
+
+           Short Break</button>
+
+
+        <button className={`long ${selectedTheme === long ? "active" : ""}`} onClick={() => {handleTimeOption(900);
+        HandleThemeChange(long);}}> Long Break</button>
       </div>
-    </div>
+
+
+    </ThemeContainer>
+    </ThemeProvider>
   );
 };
 

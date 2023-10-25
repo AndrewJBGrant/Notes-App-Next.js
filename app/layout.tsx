@@ -1,7 +1,7 @@
 import "./globals.css";
 // import Link from "next/link";
 import type { Metadata } from "next";
-import { Tilt_Neon } from "next/font/google";
+import { Roboto } from "next/font/google";
 import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
 
@@ -13,7 +13,10 @@ import { getServerSession } from "next-auth";
 import SearchInput from "./SearchInput";
 
 
-const inter = Tilt_Neon({ subsets: ["latin"] });
+const inter = Roboto({
+  subsets: ["latin"],
+  weight: "500"
+});
 
 export const metadata: Metadata = {
   title: "Notes App" ,
