@@ -1,3 +1,4 @@
+"use client";
 
 import { deletenoteAction } from "../_actions";
 
@@ -14,15 +15,14 @@ const DeleteNote: React.FC<NoteDeleteProps> = ({noteId}) => {
 
   async function handleDeleteNote ()  {
  await deletenoteAction(noteId)
- console.log(noteId, "Coming from the delete note page")
+ // console.log(noteId, "Coming from the delete note page")
   }
 
 return(
-  <>
   <button onClick={handleDeleteNote}>
   DeleteNote
 </button>
-</>
+
 );
 
 };
