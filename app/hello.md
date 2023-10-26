@@ -10,4 +10,4 @@ up = k     down = j
 left = h     right = l
 
 
-left = h     = l
+

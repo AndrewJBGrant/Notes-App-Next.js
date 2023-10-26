@@ -3,6 +3,9 @@ import { useRef } from "react";
 import DeleteNote from "./DeleteNote";
 import EditNote from "./EditNote";
 import styles from "./Notes.module.css";
+
+import DOMPurify from 'dompurify';
+
 export type NoteProps = {
   id: string;
   title: string;
@@ -13,6 +16,32 @@ export type NoteProps = {
   content: string;
   color: string;
 };
+
+
+function renderLinks(content: string) {
+  const clickableLink = content.replace(
+    /((https?:\/\/[^\s]+)|\[([^\]]+)\]\((https?:\/\/[^\s]+)\))/g,
+    (match: any, url: any, _: any, linkText: any) => {
+      if (url) {
+        return `<a href="${url}">${url}</a>`;
+      } else if (linkText && url) {
+        return `<a href="${url}">${linkText}</a>`;
+      }
+      return match;
+    }
+  );
+
+// Using DOMPurify 
+  const sanitizedLinks = DOMPurify.sanitize(clickableLink)
+  // Make the link open in a new tab
+  const contentWithTargetBlank = sanitizedLinks.replace(/<a /g, '<a target="_blank" ');
+
+  return { __html: contentWithTargetBlank };
+}
+
+ export function HTMLLinks({ content }) {
+   return <div dangerouslySetInnerHTML={renderLinks(content)} />;
+ }
 
 const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
   const authorName = note.author ? note.author.name : "Unknown author";
@@ -34,7 +63,8 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
         {/* <EditNote noteid={note.id} title={note.title} content={note.content} onChange={function (e: any): void {
             throw new Error("Function not implemented.");
           } }/> */}
-          <span>{note.title}///{note.content}</span>
+          <span>{note.title}///</span>
+          <HTMLLinks content={note.content} />
        </div>
 
 
