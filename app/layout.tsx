@@ -39,7 +39,7 @@ export default function RootLayout({
 
           {/* <!-- navigation --> */}
           <main className="col-start-2 col-end-7">
-            <span>{children}</span>
+            <section>{children}</section>
           </main>
           <aside className="col-start-7 col-end-10">
             <Timer />

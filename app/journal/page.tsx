@@ -6,6 +6,7 @@ import NewJournalForm from "./CreateJournal";
 // import EditJournal from "./EditJournal";
 
 import SearchTest from "../SearchTest"
+import Journal from "./Journal";
 
 export default async function JournalPage() {
   const session = await getServerSession(authOptions);
@@ -48,32 +49,23 @@ export default async function JournalPage() {
 // }
 
     const currentUser = session?.user?.name;
+
   return (
     <>
       <NewJournalForm />
 
-<div className="border-solid border-2 border-indigo-600">
-    {/* <SearchTest onSearch={handleSearch}/>
-{results.map((result: any) => (
-<li key={result.id}>{result}</li>
-))} */}
-</div>
-
-
-
-
-      <h1 className="border-b p-4"> JOURNAL PAGE</h1>
-      <p>Here is where all the journal entries will go</p>
-      {/* {journalFeed?.map((journalFeed) => {
+<section className="w-full md:w-2/3 flex flex-col items-center px-3">
+ {journalFeed?.map((journalFeed) => {
         return (
-          // <EditJournal
-          //    key={journalFeed.id}
-          //     {journalFeed}//{journalFeed.content}
-          //   />
+           <Journal
+              key={journalFeed.id}
+               journal={journalFeed}
+             />
 
 
         );
-      })} */}
+      })}
+</section>
     </>
   );
 }

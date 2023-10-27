@@ -8,7 +8,7 @@ const renderLinks = (content: string)  => {
       if (url) {
         return `<a href="${url}">${url}</a>`;
       } else if (linkText && url) {
-        return `<a className=="bg-yellow"href="${url}">${linkText}</a>`;
+        return `<a href="${url}">${linkText}</a>`;
       }
       return match;
     }

@@ -4,18 +4,20 @@ import DeleteNote from "./DeleteNote";
 import EditNote from "./EditNote";
 import styles from "./Notes.module.css";
 import { HighlightLinks } from "../HighlightLinks";
+import TextViewer from "../TextAreaEdits"
 
 
 
 export type NoteProps = {
   id: string;
   title: string;
-  author: {
-    name: string;
-    email: string;
+  author?: {
+    name?: string;
+    email?: string;
   } | null;
   content: string;
   color: string;
+  createdAt: Date;
 };
 
 
@@ -23,7 +25,8 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
   const authorName = note.author ? note.author.name : "Unknown author";
 
   //   console.log(createdAt.toLocaleDateString());
-  // let dateString = createdAt.toLocaleDateString()
+   let dateString = note.createdAt.toLocaleDateString()
+
 
     // const NoteEditRef = useRef<HTMLTextAreaElement>({note.title});
 
@@ -43,23 +46,21 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
 defaultValue={note.title} />
 
 
-          <HighlightLinks content={note.content} />
+
+<TextViewer value={note.content}/>
+
+          {/* <HighlightLinks content={note.content} /> */}
 
 
-          <textarea className="resize-none" wrap="off" style={{ backgroundColor: note.color }} name="content"
-          defaultValue={note.content} />
+          {/* <textarea className="resize-none" wrap="off" style={{ backgroundColor: note.color }} name="content"
+          defaultValue={note.content} /> */}
 
        </div>
 
 
 
-
-        {/* <h3 contentEditable="true" suppressContentEditableWarning={true} >{note.content}</h3> */}
-
-
-
         <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
-          {/* <p className="text-sm text-slate-500 truncate">{dateString}</p> */}
+          <p className="text-sm text-slate-500 truncate">{dateString}</p>
         <DeleteNote noteId={note.id} />
         </div>
       </div>
