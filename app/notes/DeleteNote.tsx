@@ -20,7 +20,7 @@ const DeleteNote: React.FC<NoteDeleteProps> = ({noteId}) => {
 
 return(
   <button onClick={handleDeleteNote}>
-  DeleteNote
+  Delete
 </button>
 
 );

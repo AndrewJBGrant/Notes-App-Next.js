@@ -1,14 +1,7 @@
 "use client";
 import NavLink from "./nav-link";
-import { FaFrog, FaGhost, FaSackDollar } from "react-icons/fa6";
 import { useState } from "react";
 import { SignInButton, SignOutButton } from "./Buttons";
-//   function ServerComponent() {
-//   async function myAction() {
-//     'use server'
-//     // ...
-//   }
-// }
 
  export function getDate() {
   const today = new Date();
@@ -68,7 +61,7 @@ const NavBar = () => {
         <NavBarIcon title={"Search"} text={"get your search on"}/>
       </NavLink>
 
-   
+
       <SignOutButton />
     </div>
   );

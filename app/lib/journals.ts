@@ -49,29 +49,57 @@ return { deletedJournal }
 }
 
 
-export default async function searchJournalhandler(req: { query: { q: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { id: string; title: string; content: string | null; authorId: string | null; createdAt: Date; color: string | null; }[]): void; new(): any; }; }; }) {
-  const { q } = req.query; // 'q' is the query parameter for the search term
-
+export async function editJournal(title: string, content: string, journalId: string) {
   try {
-    const results = await prisma.journal.findMany({
+    const editedJournal = await prisma.journal.update({
       where: {
-        OR: [
-          {
-            title: {
-              contains: q,
-            },
-          },
-          {
-            content: {
-              contains: q,
-            },
-          },
-        ],
+        id: journalId,
+      },
+
+      data: {
+        title,
+        content,
       },
     });
 
-    res.status(200).json(results);
+    console.log(editedJournal, "coming from journal.ts");
+    return { editedJournal };
   } catch (error) {
-    console.error('Error performing search:', error);
+    console.log(error, "check the methods");
+    return { error };
   }
 }
+
+
+
+
+
+
+
+
+// export default async function searchJournalhandler(req: { query: { q: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { id: string; title: string; content: string | null; authorId: string | null; createdAt: Date; color: string | null; }[]): void; new(): any; }; }; }) {
+//   const { q } = req.query; // 'q' is the query parameter for the search term
+
+//   try {
+//     const results = await prisma.journal.findMany({
+//       where: {
+//         OR: [
+//           {
+//             title: {
+//               contains: q,
+//             },
+//           },
+//           {
+//             content: {
+//               contains: q,
+//             },
+//           },
+//         ],
+//       },
+//     });
+
+//     res.status(200).json(results);
+//   } catch (error) {
+//     console.error('Error performing search:', error);
+//   }
+// }

@@ -37,7 +37,7 @@ const NewNoteForm = () => {
   key={color}
   type={"radio"}
   value={color}
-  style={{ height: 18, width: 18, backgroundColor: color}}
+  style={{ height: 20, width: 20, backgroundColor: color}}
   name={"color"}
   onClick={() => setSelectedColor(color)} />
 )
@@ -45,8 +45,8 @@ const NewNoteForm = () => {
 
         </div>
 
-          <input type="text" name="title" id="" placeholder="Title..." />
-          <textarea name="content" id="" placeholder="Content.." />
+          <input style={{background: selectedColor}} type="text" name="title" id="" placeholder="Title..." />
+          <textarea style={{background: selectedColor}} name="content" id="" placeholder="Content.." />
         <button type="submit">Create note</button>
         </div>
 

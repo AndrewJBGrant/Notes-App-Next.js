@@ -2,7 +2,8 @@ import { getServerSession } from "next-auth";
 import { prisma } from "../lib/prisma";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import NewJournalForm from "./CreateJournal";
-import DeleteJournal from "./DeleteJournal";
+
+// import EditJournal from "./EditJournal";
 
 import SearchTest from "../SearchTest"
 
@@ -26,25 +27,25 @@ export default async function JournalPage() {
   //   journalFeed: JournalProps[];
   // };
 
-async function handleSearch({ searchText }) {
-  const session = await getServerSession(authOptions);
-  const results = await prisma.journal.findMany({
-      where: {
-        OR: [
-          {
-            title: {
-              contains: searchText,
-            },
-          },
-          {
-            content: {
-              contains: searchText,
-            },
-          },
-        ],
-      },
-    });
-}
+// async function handleSearch({ searchText }) {
+//   const session = await getServerSession(authOptions);
+//   const results = await prisma.journal.findMany({
+//       where: {
+//         OR: [
+//           {
+//             title: {
+//               contains: searchText,
+//             },
+//           },
+//           {
+//             content: {
+//               contains: searchText,
+//             },
+//           },
+//         ],
+//       },
+//     });
+// }
 
     const currentUser = session?.user?.name;
   return (
@@ -52,12 +53,10 @@ async function handleSearch({ searchText }) {
       <NewJournalForm />
 
 <div className="border-solid border-2 border-indigo-600">
-    <SearchTest onSearch={handleSearch}/>
-
+    {/* <SearchTest onSearch={handleSearch}/>
 {results.map((result: any) => (
 <li key={result.id}>{result}</li>
-))}
-
+))} */}
 </div>
 
 
@@ -65,16 +64,16 @@ async function handleSearch({ searchText }) {
 
       <h1 className="border-b p-4"> JOURNAL PAGE</h1>
       <p>Here is where all the journal entries will go</p>
-      {journalFeed?.map((journalFeed) => {
+      {/* {journalFeed?.map((journalFeed) => {
         return (
-          <>
-            <h2 key={journalFeed.id}>
-              {journalFeed.title}//{journalFeed.content}
-            </h2>
-            <DeleteJournal journalId={journalFeed.id} />
-          </>
+          // <EditJournal
+          //    key={journalFeed.id}
+          //     {journalFeed}//{journalFeed.content}
+          //   />
+
+
         );
-      })}
+      })} */}
     </>
   );
 }

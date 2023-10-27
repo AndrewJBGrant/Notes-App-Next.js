@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createNote, deleteNote, editNote } from "./lib/notes"
 import { createTodo, deleteTodo } from "./lib/todos";
-import { createJournal, deleteJournal } from "./lib/journals";
+import { createJournal, deleteJournal, editJournal } from "./lib/journals";
 // Note Actions
 export async function createnoteAction(title: string, content: string, color: string) {
   await createNote(title, content, color);
@@ -41,4 +41,9 @@ export async function createJournalAction(title: string, content: string) {
 export async function deleteJournalAction(noteId: string) {
   await deleteJournal(noteId);
   revalidatePath('/app/journal/page')
+}
+
+export async function editedJournalAction(title: string, content: string, journalId: string) {
+await editJournal(title, content, journalId);
+revalidatePath('/app/journal/page')
 }
