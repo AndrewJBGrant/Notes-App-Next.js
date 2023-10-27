@@ -57,11 +57,6 @@ const NavBar = () => {
       <NavLink href="journal">
       <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
       </NavLink>
-      <NavLink href="search">
-        <NavBarIcon title={"Search"} text={"get your search on"}/>
-      </NavLink>
-
-
       <SignOutButton />
     </div>
   );

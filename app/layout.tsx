@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en" className={inter.className}>
-        <body className="grid grid-cols-9 gap-1">
+        <body className="grid grid-cols-9 gap-1 relative">
           <header className="col-span-1">
             <NavBar />
           </header>
@@ -41,7 +41,7 @@ export default function RootLayout({
           <main className="col-start-2 col-end-7">
             <section>{children}</section>
           </main>
-          <aside className="col-start-7 col-end-10">
+          <aside className="col-start-7 col-end-10 fixed ">
             <Timer />
             <FinalTodo />
           </aside>

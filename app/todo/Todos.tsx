@@ -15,7 +15,7 @@ const Todo: React.FC<{ todo: TodoProps }> = ({ todo }) => {
   return (
     <>
 
-      <div className="py-4 flex justify-between w-full max-w-sm">
+      <div className="py-4 flex justify-between w-full">
      <HighlightLinks content={todo.content} />
         <DeleteTodo todoId={todo.id} />
       </div>

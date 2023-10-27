@@ -22,7 +22,7 @@ const NewJournalForm = () => {
 
   return (
     <>
-      <form ref={journalFormRef} action={journalAction}>
+      <form  className="w-full flex flex-col shadow my-4 p-3" ref={journalFormRef} action={journalAction}>
         <input
           type="text"
           name="title"
