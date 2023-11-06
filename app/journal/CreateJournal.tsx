@@ -7,6 +7,9 @@ const NewJournalForm = () => {
   const journalFormRef = useRef<HTMLFormElement>(null);
   async function journalAction(data: FormData) {
     const title = data.get("title");
+    if (!title) {
+     return {datePlaceholer}
+    }
     const content = data.get("content");
 
     if (!content || typeof content !== "string") return;
@@ -29,7 +32,7 @@ const NewJournalForm = () => {
           id=""
           placeholder={datePlaceholer}
         />
-        <input type="text" name="content" placeholder="Content here..." />
+        <textarea rows={10}  name="content" placeholder="What have you been working on..." />
         <button type="submit">Create Journal</button>
       </form>
     </>

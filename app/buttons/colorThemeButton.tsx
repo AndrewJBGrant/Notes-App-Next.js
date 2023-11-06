@@ -15,7 +15,7 @@ return (
 
 {colorTheme === "light" ? (
    <span className="text-2xl"><FaRegMoon /></span> ) : (
-   <span className="text-2xl"><GoSun /></span> )
+   <span className="text-3xl"><GoSun /></span> )
 }
 </button>
 )
