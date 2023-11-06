@@ -1,10 +1,9 @@
 "use client";
 import NavLink from "./nav-link";
-import { useState } from "react";
 import { SignInButton, SignOutButton } from "./Buttons";
-import useColorTheme from "./hooks/colorTheme";
+import ColorThemeButton from "./buttons/colorThemeButton";
 
- export function getDate() {
+export function getDate() {
   const today = new Date();
   const month = today.getMonth() + 1;
   const year = today.getFullYear();
@@ -30,39 +29,40 @@ import useColorTheme from "./hooks/colorTheme";
 // return (
 // )
 
-
 const NavBarIcon = ({ icon, title, text }: any) => (
   <div className="navbar-icon group">
-{title}
+    {title}
     {icon}
     <span className="navbar-tooltip group-hover:scale-100">{text}</span>
   </div>
 );
 
 const NavBar = () => {
-  const [currentDate, setCurrentDate] = useState(getDate());
+  const currentDate = getDate()
   // const [currentTime, setCurrentTime] = useState(getTime());
 
-  const [colorTheme, setColorTheme] = useColorTheme();
-
-
   return (
-    <div className="fixed top-0 h-screen m-4 flex flex-col text-white shadow-sm">
-      <div className="navbar-icon group">{currentDate}
-      {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
+    <div className="fixed top-0 h-screen m-4 flex flex-col text-main">
+      <div className="navbar-icon group">
+        {currentDate}
+        {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
       </div>
       <NavLink href="/">
-       <NavBarIcon title={"Home"} text={"Home"} />
+        <NavBarIcon title={"Home"} />
       </NavLink>
       <NavLink href="notes">
         <NavBarIcon text={"Write down some quick notes"} title={"Notes"} />
       </NavLink>
       <NavLink href="journal">
-      <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
+        <NavBarIcon
+          title={"Journal"}
+          text={"A place to keep track of your thoughts and progress"}
+        />
       </NavLink>
-<NavLink href="#">
- <button onClick={() => setColorTheme(colorTheme === "light" ? "dark" : "light")} className="navbar-icon">theme</button>
-  </NavLink>
+
+      <NavLink href="#">
+        <ColorThemeButton />
+      </NavLink>
 
       <SignOutButton />
     </div>

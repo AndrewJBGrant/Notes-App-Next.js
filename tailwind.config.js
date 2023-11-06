@@ -11,11 +11,15 @@ darkMode: "class",
   theme: {
     extend: {
       colors: {
-        'primary':'#FCFCFC',
-        'text':'#232020',
-        'accent' :'#3D405B'
+        // Light
+        'main':'#FCFCFC',
+        'text-color': '#232020',
+        'btn-color' : '#3D405B',
+        'btn-hover' : '#4F5480',
+        // Dark
+        'dark-main' : '#121212'
       }
-    },
+    }
   },
   plugins: [],
 }
