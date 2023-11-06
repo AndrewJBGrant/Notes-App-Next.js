@@ -2,6 +2,7 @@
 import NavLink from "./nav-link";
 import { useState } from "react";
 import { SignInButton, SignOutButton } from "./Buttons";
+import useColorTheme from "./hooks/colorTheme";
 
  export function getDate() {
   const today = new Date();
@@ -42,6 +43,8 @@ const NavBar = () => {
   const [currentDate, setCurrentDate] = useState(getDate());
   // const [currentTime, setCurrentTime] = useState(getTime());
 
+  const [colorTheme, setColorTheme] = useColorTheme();
+
 
   return (
     <div className="fixed top-0 h-screen m-4 flex flex-col text-white shadow-sm">
@@ -57,6 +60,10 @@ const NavBar = () => {
       <NavLink href="journal">
       <NavBarIcon title={"Journal"}  text={"A place to keep track of your thoughts and progress"} />
       </NavLink>
+<NavLink href="#">
+ <button onClick={() => setColorTheme(colorTheme === "light" ? "dark" : "light")} className="navbar-icon">theme</button>
+  </NavLink>
+
       <SignOutButton />
     </div>
   );

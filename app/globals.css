@@ -2,22 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
-
-  .navbar-icon {
+.navbar-icon {
     @apply relative flex items-center justify-center
     h-16 w-16 mt-4 mb-2 mx-auto shadow-lg bg-accent
     hover:bg-[#4F5480] rounded-3xl hover:rounded-2xl
     transition-all duration-300 ease-linear;
   }
-
 .navbar-tooltip {
   @apply absolute w-auto p-2 m-4 min-w-max left-14 h-12
   rounded-md shadow-md bg-[#4F5480] text-[#FBF6EE] text-xs font-bold transition-all duration-100 scale-0 origin-left
 }
-
-
 }
 
 * {
@@ -26,8 +21,8 @@
 
 html,
 body {
-  background-color: #FBF6EE;
-  color: #232020;
+background-color: #FBF6EE;
+color: #232020;
   padding: 0;
   margin: 0;
 }
@@ -50,14 +45,11 @@ overflow: auto;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-
-
- input, textarea::placeholder {
+input, textarea::placeholder {
   font-weight: bold;
     opacity: 0.5;
     color: rgb(110, 110, 110);
 }
-
 
 input[type="radio"] {
   -webkit-appearance: none;

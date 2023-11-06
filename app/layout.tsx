@@ -39,7 +39,7 @@ export default function RootLayout({
 
           {/* <!-- navigation --> */}
           <main className="col-start-2 col-end-7">
-            <section>{children}</section>
+            <section className="dark:bg-red-700 bg-sky-500">{children}</section>
           </main>
           <aside className="col-start-7 col-end-10 fixed ">
             <Timer />
