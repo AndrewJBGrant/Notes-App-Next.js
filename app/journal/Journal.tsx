@@ -8,7 +8,7 @@ title: string;
   author: {
     name: string;
     email: string;
-  } | null;
+  };
   content: string;
   createdAt: Date;
 }
@@ -24,7 +24,7 @@ return(
 <h3 className="text-slate-600 text-2xl font-bold pb-4">{dateString}</h3>
 <h1 className="text-slate-700 text-2xl font-bold pb-4">{journal.title}</h1>
 
-<EditJournalForm journalId={journal.id} initialContent={journal.content} />
+<EditJournalForm journalId={journal.id} initialContent={journal.content} initialTitle={journal.title} />
 
 {/* <p contentEditable={true} suppressContentEditableWarning={true} className="text-base/57">{journal.content}</p> */}
 

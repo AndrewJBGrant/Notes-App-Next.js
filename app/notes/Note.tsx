@@ -11,7 +11,7 @@ export type NoteProps = {
   author?: {
     name?: string;
     email?: string;
-  } | null;
+  };
   content: string;
   color: string;
   createdAt: Date;

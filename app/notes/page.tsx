@@ -51,10 +51,9 @@ const NoteSearch = await prisma.note.findMany({
 
   return (
     <>
-      <h1>Welcome back {firstName![0]}'s notes all here</h1>
 {/* <SearchInput /> */}
 
-      <div className="row-span-3 grid gap-2 grid-cols-3">
+      <div className="row-span-3 grid gap-2 grid-cols-3 m-4">
         <CreateNote />
         {noteFeed?.map((noteFeed) => {
           return <Note key={noteFeed.id} note={noteFeed} />;

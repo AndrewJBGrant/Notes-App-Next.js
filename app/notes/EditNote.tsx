@@ -17,7 +17,7 @@ const EditNoteForm = ({
 
   const handleSave = async () => {
     await editNoteAction(title, content, noteId);
-    console.log(title, "edited title", content, "edited content");
+    console.log("NOTES", title, "edited title", content, "edited content");
   };
 
   return (
