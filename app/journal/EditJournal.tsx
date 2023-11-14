@@ -1,35 +1,30 @@
 "use client";
 
-// import React, { useState } from 'react';
-// import DeleteJournal from "./DeleteJournal";
+import { useState } from 'react';
+import { prisma } from "../lib/prisma";
+import { editedJournalAction } from '../_actions';
+import { title } from 'process';
 
-// function EditJournal({ journal, onUpdate }) {
-//   const [isEditing, setIsEditing] = useState(false);
-//   const [editedContent, setEditedContent] = useState(journal.content);
+const EditJournalForm = ({ journalId, initialContent }: {journalId: string, initialContent: string}) => {
+  // const { data: session } = useSession();
+  const [content, setContent] = useState(initialContent);
 
-//   const toggleEditMode = () => {
-//     setIsEditing((prev) => !prev);
-//   };
+  const handleSave = async () => {
 
-//   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-//     setEditedContent(e.target.value);
-//     onUpdate(editedContent); // Wil notify the parent of any changes
-//   };
+ await editedJournalAction(title, content, journalId)
+ console.log(content, "is this edited??");
+  };
 
-//   return (
-//     <div>
-//       {isEditing ? (
-//         <div>
-//           <textarea value={editedContent} onChange={handleChange} />
-//         </div>
-//       ) : (
-//         <div onClick={toggleEditMode}>
-//           {journal.content}
-//         </div>
-//       )}
-//           <DeleteJournal journalId={journal.id} />
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value) }
+        onBlur={handleSave}
+      />
+      <button onClick={handleSave}>Save</button>
+    </div>
+  );
+};
 
-// export default EditJournal;
+export default EditJournalForm;

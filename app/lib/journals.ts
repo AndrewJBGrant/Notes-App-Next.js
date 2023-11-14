@@ -52,17 +52,11 @@ return { deletedJournal }
 export async function editJournal(title: string, content: string, journalId: string) {
   try {
     const editedJournal = await prisma.journal.update({
-      where: {
-        id: journalId,
-      },
+        where: { id: journalId },
+        data: { content },
+      });
 
-      data: {
-        title,
-        content,
-      },
-    });
-
-    console.log(editedJournal, "coming from journal.ts");
+        console.log(editedJournal, "edited coming from journal.ts");
     return { editedJournal };
   } catch (error) {
     console.log(error, "check the methods");
