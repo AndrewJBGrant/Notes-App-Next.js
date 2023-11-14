@@ -61,7 +61,7 @@ model VerificationToken {
 model Note {
   id        String  @id @default(cuid())
   title     String
-  content   String?
+  content   String
   authorId  String?
   createdAt DateTime @default(now())
   color     String?

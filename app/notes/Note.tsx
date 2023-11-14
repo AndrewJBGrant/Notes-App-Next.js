@@ -9,11 +9,10 @@ export type NoteProps = {
   id: string;
   title: string;
   author?: {
-    name?: string;
-    email?: string;
-  };
+    name?: string | null;
+  } | null;
   content: string;
-  color: string;
+  color?: string | null;
   createdAt: Date;
 };
 
