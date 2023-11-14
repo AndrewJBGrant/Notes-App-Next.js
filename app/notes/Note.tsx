@@ -24,7 +24,7 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
 
   return (
     <>
-      <div className={styles.note} style={{ backgroundColor: note.color }}>
+      <div className={styles.note} style={{ backgroundColor: note.color! }}>
         <div>
           <EditNoteForm
             noteId={note.id}
