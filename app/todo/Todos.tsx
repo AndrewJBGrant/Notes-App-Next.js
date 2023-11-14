@@ -6,8 +6,7 @@ export type TodoProps = {
   id: string;
   content: string;
   author: {
-    name: string;
-    email: string;
+    name: string | null;
   } | null;
 };
 

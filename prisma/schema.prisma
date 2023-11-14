@@ -70,7 +70,7 @@ model Note {
 
 model Todo {
   id        String  @id @default(cuid())
-  content   String?
+  content   String
   authorId  String?
   createdAt DateTime @default(now())
   author    User? @relation(fields: [authorId], references: [id])
