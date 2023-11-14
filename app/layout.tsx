@@ -41,7 +41,7 @@ export default function RootLayout({
           <main className="col-start-2 col-end-7">
             <section>{children}</section>
           </main>
-          <aside className="col-start-7 col-end-10 fixed ">
+          <aside className="col-start-7 col-end-10 fixed">
             <Timer />
             <FinalTodo />
           </aside>

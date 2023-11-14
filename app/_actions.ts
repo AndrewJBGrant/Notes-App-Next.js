@@ -43,7 +43,7 @@ export async function deleteJournalAction(noteId: string) {
   revalidatePath('/app/journal/page')
 }
 
-export async function editedJournalAction(title: string, content: string, journalId: string) {
-await editJournal(title, content, journalId);
+export async function editedJournalAction(content: string, journalId: string) {
+await editJournal(content, journalId);
 revalidatePath('/app/journal/page')
 }
