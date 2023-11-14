@@ -38,8 +38,8 @@ export async function createJournalAction(title: string, content: string) {
   revalidatePath('/app/journal/page')
 }
 
-export async function deleteJournalAction(noteId: string) {
-  await deleteJournal(noteId);
+export async function deleteJournalAction(journalId: string) {
+  await deleteJournal(journalId);
   revalidatePath('/app/journal/page')
 }
 

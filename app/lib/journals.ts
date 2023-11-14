@@ -64,36 +64,3 @@ export async function editJournal(content: string, journalId: string) {
   }
 }
 
-
-
-
-
-
-
-
-// export default async function searchJournalhandler(req: { query: { q: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { id: string; title: string; content: string | null; authorId: string | null; createdAt: Date; color: string | null; }[]): void; new(): any; }; }; }) {
-//   const { q } = req.query; // 'q' is the query parameter for the search term
-
-//   try {
-//     const results = await prisma.journal.findMany({
-//       where: {
-//         OR: [
-//           {
-//             title: {
-//               contains: q,
-//             },
-//           },
-//           {
-//             content: {
-//               contains: q,
-//             },
-//           },
-//         ],
-//       },
-//     });
-
-//     res.status(200).json(results);
-//   } catch (error) {
-//     console.error('Error performing search:', error);
-//   }
-// }
