@@ -13,12 +13,13 @@ const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTi
 
   return (
     <div>
-  <input
+  <input className="text-slate-700 text-2xl font-bold pb-4"
         type="text"
         id="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onBlur={handleSave}
+
       />
 
 

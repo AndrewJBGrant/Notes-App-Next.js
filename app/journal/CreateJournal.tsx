@@ -7,13 +7,29 @@ const NewJournalForm = () => {
   const journalFormRef = useRef<HTMLFormElement>(null);
   async function journalAction(data: FormData) {
     const title = data.get("title");
+    //     if (title?.length !== 0) {
+    //   console.log(title);
+    // } else {
+    //   console.log(datePlaceholer, typeof(title));
+    //   return datePlaceholer
+    // }
+
     if (!title) {
-     return {datePlaceholer}
-    }
+      console.log(datePlaceholer);
+    const title = datePlaceholer
+    return
+  }
+
     const content = data.get("content");
 
     if (!content || typeof content !== "string") return;
-    if (!title || typeof title !== "string") return;
+
+
+    if (!title || typeof title !== "string")
+     return;
+    // {!title ?  datePlaceholer : title}
+
+
 
     await createJournalAction(title, content);
 
@@ -29,10 +45,10 @@ const NewJournalForm = () => {
         <input
           type="text"
           name="title"
-          id=""
-          placeholder={datePlaceholer}
+          defaultValue={datePlaceholer}
+          // placeholder={datePlaceholer}
         />
-        <textarea rows={10}  name="content" placeholder="What have you been working on..." />
+        <textarea rows={16}  name="content" placeholder="What have you been working on..." />
         <button type="submit">Create Journal</button>
       </form>
     </>
