@@ -30,10 +30,6 @@ const Timer: React.FC = () => {
     setTimeLeft(time);
   };
 
-
-
-
-
   useEffect(() => {
     if (running) {
       const timer = setInterval(() => {
@@ -44,17 +40,23 @@ const Timer: React.FC = () => {
     }
   }, [running]);
 
-  // console.log("hello there");
-
   return (
     <ThemeProvider theme={selectedTheme}>
       <GlobalStyles />
     <ThemeContainer>
       <div className="flex flex-col justify-center p-8">
+
+{ time === 300 ?
         <h1 className="flex justify-center text-8xl">
+        0{Math.floor(timeLeft / 60)}:
+         {(timeLeft % 60).toString().padStart(2, "0")}
+        </h1> :
+
+       <h1 className="flex justify-center text-8xl">
           {Math.floor(timeLeft / 60)}:
           {(timeLeft % 60).toString().padStart(2, "0")}
-        </h1>
+       </h1>
+}
 
         <button
           className="px-8 text-3xl flex justify-center transition-colors duration-150 bg focus:shadow-outline border border-indigo-600 hover:bg-indigo-800"
@@ -64,9 +66,6 @@ const Timer: React.FC = () => {
         </button>
       </div>
 
-
-
-
       <div className="text-xl grid grid-cols-3 divide-x">
         <button
           className={`focus ${selectedTheme === focus ? "active" : ""}`}
@@ -75,25 +74,17 @@ const Timer: React.FC = () => {
             HandleThemeChange(focus);}
           }}
         >
-
-          Focus
-        </button>
-
+        Focus
+      </button>
         <button className={`short ${selectedTheme === short ? "active" : ""}`}onClick={() => {handleTimeOption(300);
 
-
         HandleThemeChange(short);}}>
-
            Short Break</button>
-
-
         <button className={`long ${selectedTheme === long ? "active" : ""}`} onClick={() => {handleTimeOption(900);
         HandleThemeChange(long);}}> Long Break</button>
       </div>
-
-
     </ThemeContainer>
-    </ThemeProvider>
+  </ThemeProvider>
   );
 };
 

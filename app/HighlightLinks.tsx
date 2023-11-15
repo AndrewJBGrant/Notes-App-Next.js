@@ -24,5 +24,5 @@ const renderLinks = (content: string)  => {
 
 // https://bobbyhadz.com/blog/typescript-binding-element-implicitly-has-an-any-type
  export function HighlightLinks({ content }: {content: any}) {
-   return <span dangerouslySetInnerHTML={renderLinks(content)} />;
+   return <span className='highlights' dangerouslySetInnerHTML={renderLinks(content)} />;
  }

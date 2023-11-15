@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { editedJournalAction } from '../_actions';
+import { HighlightLinks } from '../HighlightLinks';
 
 const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTitle: string, journalId: string, initialContent: string}) => {
   const [content, setContent] = useState(initialContent);
@@ -22,7 +23,7 @@ const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTi
 
       />
 
-
+ <HighlightLinks content={content} />
 
       <textarea
         value={content}

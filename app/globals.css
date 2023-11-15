@@ -33,6 +33,12 @@ a {
   margin: 0;
 }
 
+ .highlights a:hover {
+text-decoration: underline;
+color: green;
+background: yellow;
+}
+
 input, textarea {
   display: block;
 width: 100%;
