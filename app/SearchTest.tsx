@@ -13,9 +13,10 @@ import { useSearchParams } from 'next/navigation'
 const SearchBar = () => {
   const router = useRouter();
 
-  const searchParams = useSearchParams()
-
-  // const { onSearch } = props;
+  // const searchParams = useSearchParams()
+  //  const search = searchParams.get('search')
+  //  console.log(search, "coming from client searchBar")
+  // // const { onSearch } = props;
 
   const placeHolderText = "Enter Search...";
   const [value, setValue] = useState(placeHolderText);
