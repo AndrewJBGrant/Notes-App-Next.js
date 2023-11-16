@@ -31,6 +31,6 @@
     ".next/types/**/*.ts",
     "app/notes/CreateNote.tsx",
     "app/api/auth/[...nextauth]"
-, "app/SearchTest.jsx"  ],
+, "app/SearchTest.tsx"  ],
   "exclude": ["node_modules"]
 }
