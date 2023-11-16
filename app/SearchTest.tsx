@@ -3,8 +3,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 
-import { useSearchParams } from 'next/navigation'
-
+import { BsSearch } from "react-icons/bs";
 
 // export type SearchProps = {
 //   onSearch: (value: string) => void;
@@ -50,15 +49,15 @@ const SearchBar = () => {
   return (
     <>
       <input
-        className="h-10 px-5 pr-10 w-full rounded-md border border-red-600"
+        className="h-10 px-5 pr-10 w-2/3 rounded-md border border-red-600"
         type={"search"}
         name={"search"}
         placeholder={placeHolderText}
         onChange={searchHandler}
         // onKeyDown={handleKeyDown}
       />
-      <button type="submit" className="mt-3 bg-green-600">
-        SearchButton
+      <button type="submit" className="absolute right-0 top-0 mt-5 mr-4 bg-slate-600">
+        <BsSearch />
       </button>
     </>
   );

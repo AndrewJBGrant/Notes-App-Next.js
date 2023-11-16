@@ -26,48 +26,34 @@ export default async function NotesPage({
     },
   });
 
-  // .split(' ').join(" & "), ???
-  // let params = new URL(document.location).searchParams;
-  // let name = params.get("name"); // is the string "Jonathan Smith".
-
-  // const param = searchParams;
-  // let newSearch = param.get("search");
-
-  // console.log(newSearch, "MAYBE")
-
+// Taking the search query from the url
   const urlParams = new URLSearchParams(searchParams);
-  const maybe = urlParams.get("search");
-
-  const query = maybe?.toString().split(" ").join(" <-> ");
+  const urlSearchParams = urlParams.get("search");
+  const query = urlSearchParams?.toString().split(" ").join(" ");
 
   //.replace(/[\s\n\t]/g, '_');
-
-  // const newQ = JSON.parse(query);
+  // .split(' ').join(" & ");
 
   const NoteSearch = await prisma.note.findMany({
     where: {
-      //     // title: {
-      //     //   search: "test",
-      //     // },
-      content: {
-        contains: query,
-      },
-      //   //  color: {
-      //   //     search: "#FFD046",
-      //   //   },
-      //   },
+      OR: [
+        {
+          content: {
+            contains: query,
+          },
+        },
 
-      // orderBy: {
-      //   _relevance: {
-      //   fields: ['content'],
-      //       search: query,
-      //         }
+        {
+          title: {
+            contains: query,
+          },
+        },
+      ],
     },
   });
 
-  console.log(typeof searchParams, "have we a search??", searchParams);
-  console.log(typeof NoteSearch, "a list?");
-  console.log(typeof query, "here is a query?", query);
+  // (typeof searchParams) => object
+  // (typeof query) => string
 
   type Props = {
     noteFeed: NoteProps[];
@@ -97,3 +83,14 @@ export default async function NotesPage({
     </>
   );
 }
+
+//   //  color: {
+//   //     search: "#FFD046",
+//   //   },
+//   },
+
+// orderBy: {
+//   _relevance: {
+//   fields: ['content'],
+//       search: query,
+//         }
