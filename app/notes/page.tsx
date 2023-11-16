@@ -5,7 +5,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import SearchBar from "../SearchTest";
 
-export default async function NotesPage() {
+
+export default async function NotesPage( { searchParams } : { searchParams: string }) {
   const session = await getServerSession(authOptions);
   // console.log(session?.user?.name, "Hello there User!");
   // const noteFeed = await prisma.note.findMany({
@@ -22,35 +23,39 @@ export default async function NotesPage() {
   //   },
   // });
 
+const query = searchParams.toString().replace(/[\s\n\t]/g, '_');
+
+console.log(query, "here is a query?")
+
 const NoteSearch = await prisma.note.findMany({
  where: {
     // title: {
     //   search: "test",
     // },
     content: {
-      search: "prisma",
+      search: query,
     },
-   // color: {
-    //   search: searchTerm,
-    // },
+  //  color: {
+  //     search: "#FFD046",
+  //   },
   },
-
-
 })
 
-  //console.log(noteFeed)
+
+  console.log(searchParams, "have we a search??")
+  console.log(NoteSearch, "a list?")
 
   type Props = {
     noteFeed: NoteProps[];
   };
 
   const currentUser = session?.user?.name;
-  const firstName = currentUser?.split(" ")
+  // const firstName = currentUser?.split(" ")
 
 
   return (
     <>
- <SearchBar onSearch={() => console.log("clicking from the notes.page")} />
+ <SearchBar />
 
       {/* <div className="row-span-3 grid gap-2 grid-cols-3 m-4">
         <CreateNote />

@@ -1,51 +1,50 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
 
-import { ChangeEvent, useState } from "react";
+import { useSearchParams } from 'next/navigation'
 
-// export default function SearchTest( { onSearch }) {
-// const [ searchTerm, setSearchTerm] = useState("");
 
-// const handleSearch = () => {
-//   onSearch(searchTerm);
+// export type SearchProps = {
+//   onSearch: (value: string) => void;
 // }
 
-// return (
-//   <>
-//   <input type="text"
-//   placeholder="Testing the search..."
-//   value={searchTerm}
-//   onChange={(e) => setSearchTerm(e.target.value)} />
-// <button onClick={handleSearch}>Search</button>
-//   </>
-// )
-// };
+const SearchBar = () => {
+  const router = useRouter();
+
+  const searchParams = useSearchParams()
+
+  // const { onSearch } = props;
+
+  const placeHolderText = "Enter Search...";
+  const [value, setValue] = useState(placeHolderText);
+  const [query] = useDebounce(value, 500);
 
 
-export type SearchProps = {
-  onSearch: (value: string) => void;
-}
 
-
-const SearchBar = (props: SearchProps) => {
-const { onSearch } = props;
-const placeHolderText = "Enter Search..."
-const [value, setValue] = useState(placeHolderText)
-
-
-const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
-  const { target } = e;
-  setValue(target.value)
-  console.log(value)
-}
-
-const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  if (e.key === "Enter") {
-    onSearch(value)
-    console.log(e, "enter has been clicked 🚀")
+  const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { target } = e;
+    setValue(target.value);
+    // console.log(value)
   };
-};
+
+  useEffect(() => {
+    if (!query) {
+      router.push(`/notes`);
+    } else {
+      router.push(`/notes?search=${query}`);
+    }
+  }, [query, router]);
 
 
+
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === "Enter") {
+  //     onSearch(value)
+  //     console.log(e, "enter has been clicked 🚀")
+  //   };
+  // };
 
   return (
     <>
@@ -55,7 +54,7 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         name={"search"}
         placeholder={placeHolderText}
         onChange={searchHandler}
-        onKeyDown={handleKeyDown}
+        // onKeyDown={handleKeyDown}
       />
       <button type="submit" className="mt-3 bg-green-600">
         SearchButton
