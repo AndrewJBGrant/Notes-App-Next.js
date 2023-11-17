@@ -25,11 +25,12 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
   return (
     <>
       <div className={styles.note} style={{ backgroundColor: note.color! }}>
-        <div>
+        <div className="w-full">
           <EditNoteForm
             noteId={note.id}
             initialContent={note.content}
             initialTitle={note.title}
+          
           />
 
           {/* <HighlightLinks content={note.content} /> */}
@@ -38,8 +39,8 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
         {/* <textarea className="resize-none" wrap="off" style={{ backgroundColor: note.color }} name="content"
           defaultValue={note.content} /> */}
 
-        <div className="pt-8 text-base font-semibold leading-7 place-self-end  flex flex-row justify-normal items-center">
-          <p className="text-sm text-slate-500 truncate">{dateString}</p>
+        <div className="text-base font-semibold leading-7 flex justify-between items-center">
+          <p className="text-sm text-slate-900 truncate">{dateString}</p>
           <DeleteNote noteId={note.id} />
         </div>
       </div>

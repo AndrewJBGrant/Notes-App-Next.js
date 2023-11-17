@@ -59,7 +59,7 @@ export default async function NotesPage({
     noteFeed: NoteProps[];
   };
 
-  const currentUser = session?.user?.name;
+  // const currentUser = session?.user?.name;
   // const firstName = currentUser?.split(" ")
 
   return (
@@ -71,15 +71,14 @@ export default async function NotesPage({
         {noteFeed?.map((noteFeed) => {
           return <Note key={noteFeed.id} note={noteFeed} />;
         })}
-      </div>
 
       <p>QUERY:{query}</p>
 
-      {/* <p>SEARCHPARAMS:{searchParams}</p> */}
 
       {NoteSearch?.map((noteFeed) => {
         return <Note key={noteFeed.id} note={noteFeed} />;
       })}
+      </div>
     </>
   );
 }

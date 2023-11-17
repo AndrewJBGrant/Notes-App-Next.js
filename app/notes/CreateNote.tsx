@@ -6,7 +6,7 @@ import styles from "./Notes.module.css";
 
 
 const NewNoteForm = () => {
-  const colorOptions = ["#EEFF55", "#FFFFDD", "#A01A7D"];
+  const colorOptions = ["#FEFFBF", "#B0EFEF", "#F498C2"];
 
   const [selectedColor, setSelectedColor] = useState("white");
 
@@ -45,8 +45,8 @@ const NewNoteForm = () => {
 
         </div>
 
-          <input style={{background: selectedColor}} type="text" name="title" id="" placeholder="Title..." />
-          <textarea style={{background: selectedColor}} name="content" id="" placeholder="Content.." />
+          <input style={{background: selectedColor}} type="text" name="title" placeholder="Title..." />
+          <textarea style={{background: selectedColor}} name="content" placeholder="Content.." />
         <button type="submit">Create note</button>
         </div>
 

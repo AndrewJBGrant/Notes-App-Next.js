@@ -14,6 +14,12 @@
   @apply absolute w-auto p-2 m-4 min-w-max left-14 h-12
   rounded-md shadow-md bg-slate-800 text-main text-xs font-bold transition-all duration-100 scale-0 origin-left
 }
+.highlights a {
+ @apply font-bold hover:bg-slate-400 hover:underline
+}
+
+
+
 }
 
 * {
@@ -33,15 +39,10 @@ a {
   margin: 0;
 }
 
- .highlights a:hover {
-text-decoration: underline;
-color: green;
-background: yellow;
-}
 
 input, textarea {
   display: block;
-width: 100%;
+  width: 100%;
 }
 
 textarea {
@@ -52,8 +53,6 @@ overflow: auto;
 
 input, textarea::placeholder {
   font-weight: bold;
-    opacity: 0.5;
-    color: rgb(110, 110, 110);
 }
 
 input[type="radio"] {

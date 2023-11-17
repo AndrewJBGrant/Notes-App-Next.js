@@ -19,6 +19,7 @@ const Timer: React.FC = () => {
 // Theme Switching
   const [selectedTheme, setSelectedTheme] = useState(focus);
 
+  // export const LevelContext = createContext(timeLeft);
 
 
   const HandleThemeChange = (theme: SetStateAction<{ name: string; colors: { background: string; border: string; }; }>) => {
@@ -40,11 +41,12 @@ const Timer: React.FC = () => {
     }
   }, [running]);
 
+
   return (
     <ThemeProvider theme={selectedTheme}>
       <GlobalStyles />
     <ThemeContainer>
-      <div className="flex flex-col justify-center p-8">
+      <div className="flex flex-col justify-center p-6">
 
 { time === 300 ?
         <h1 className="flex justify-center text-8xl">

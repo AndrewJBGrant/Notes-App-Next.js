@@ -3,18 +3,18 @@
 import { SetStateAction, useState } from "react";
 
 const ColorPicker = () => {
-  const colorOptions = ["#EF5D60", "#FFD046", "#A01A7D"];
+  const colorOptions = ["#FEFFBF", "#B0EFEF", "#F498C2"];
 
   const [selectedColor, setSelectedColor] = useState(colorOptions[1]);
 
   const changeStyle = (color: SetStateAction<string>) => {
     setSelectedColor(color);
-    console.log(color, "coming from color picker!!!");
+    // console.log(color, "coming from color picker!!!");
   };
   return (
     <>
 
-      <div className="border-2 border-indigo-600">
+      <div>
         {colorOptions.map((color) => (
           <button
           type="button"
@@ -23,7 +23,8 @@ const ColorPicker = () => {
             }`}
             key={color}
             name="color"
-            style={{ height: 30,
+            style={{
+              height: 30,
               width: 30, backgroundColor: color }}
             onClick={() => changeStyle(color)}
           />

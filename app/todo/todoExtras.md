@@ -1,6 +1,6 @@
-import { prisma } from "../lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+// import { prisma } from "../lib/prisma";
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "../api/auth/[...nextauth]/route";
 
 // export default async function TodoPage() {
 //   const session = await getServerSession(authOptions);
@@ -19,14 +19,14 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 //     },
 //   });
 
-  //console.log(noteFeed)
+//   // console.log(noteFeed)
 
-  // type Props = {
-  //   noteFeed: NoteProps[];
-  // };
+//   // type Props = {
+//   //   noteFeed: NoteProps[];
+//   // };
 
-//   const currentUser = session?.user?.name;
-//   const firstName = currentUser?.split(" ");
+//   // const currentUser = session?.user?.name;
+//   // const firstName = currentUser?.split(" ");
 
 //   return (
 //     <>

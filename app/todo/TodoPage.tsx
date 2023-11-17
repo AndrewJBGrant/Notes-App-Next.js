@@ -43,11 +43,12 @@ export default async function TodoPage() {
 
   return (
     <>
-      <NewTodoForm />
-      {todoFeed?.map((todoFeed) => {
-        return <Todo key={todoFeed.id} todo={todoFeed} />;
-      })}
-
+      <div className="grid mx-4">
+        <NewTodoForm />
+        {todoFeed?.map((todoFeed) => {
+          return <Todo key={todoFeed.id} todo={todoFeed} />;
+        })}
+      </div>
     </>
   );
 }

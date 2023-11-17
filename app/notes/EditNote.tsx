@@ -17,7 +17,7 @@ const EditNoteForm = ({
 
   const handleSave = async () => {
     await editNoteAction(title, content, noteId);
-    console.log("NOTES", title, "edited title", content, "edited content");
+    // console.log("NOTES", title, "edited title", content, "edited content");
   };
 
   return (
@@ -28,6 +28,8 @@ const EditNoteForm = ({
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onBlur={handleSave}
+
+
       />
 
       <textarea
