@@ -12,6 +12,23 @@ const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTi
  console.log(title, content, "JOURNAL is this edited??");
   };
 
+
+// const Component = ({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) => {
+//   return <div>{children}</div>;
+// };
+
+
+const linkableContent = ({ children, } : {children: React.ReactNode }) => {
+return (
+ <HighlightLinks content={content} />
+      )
+}
+
+
   return (
     <div>
   <input className="text-slate-700 text-2xl font-bold pb-4"
@@ -23,13 +40,12 @@ const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTi
 
       />
 
- <HighlightLinks content={content} />
-
       <textarea
-        value={content}
+        value={linkableContent}
         onChange={(e) => setContent(e.target.value) }
         onBlur={handleSave}
       />
+
       {/* <button onClick={handleSave}>Save Edit</button> */}
     </div>
   );

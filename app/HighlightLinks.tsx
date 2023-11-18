@@ -1,7 +1,12 @@
 import DOMPurify from 'dompurify';
 
 
-const renderLinks = (content: string)  => {
+// const Component = (): React.ReactNode => {
+//   return <div>Hello world</div>;
+// };
+
+
+const renderLinks = (content: string): React.ReactNode  => {
   const clickableLink = content.replace(
     /((https?:\/\/[^\s]+)|\[([^\]]+)\]\((https?:\/\/[^\s]+)\))/g,
     (match: any, url: any, _: any, linkText: any) => {

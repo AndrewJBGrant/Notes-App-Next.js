@@ -17,7 +17,7 @@ const SearchBar = () => {
   //  console.log(search, "coming from client searchBar")
   // // const { onSearch } = props;
 
-  const placeHolderText = "Enter Search...";
+  const placeHolderText = "🔍 Enter Search...";
   const [value, setValue] = useState("");
   const [query] = useDebounce(value, 500);
 
@@ -57,7 +57,6 @@ const SearchBar = () => {
         // onKeyDown={handleKeyDown}
       />
       <button type="submit" className="absolute right-0 top-0 mt-5 mr-4 bg-slate-600">
-        <BsSearch />
       </button>
     </>
   );
