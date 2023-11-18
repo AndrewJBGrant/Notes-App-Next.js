@@ -18,7 +18,7 @@ const SearchBar = () => {
   // // const { onSearch } = props;
 
   const placeHolderText = "Enter Search...";
-  const [value, setValue] = useState(placeHolderText);
+  const [value, setValue] = useState("");
   const [query] = useDebounce(value, 500);
 
 
