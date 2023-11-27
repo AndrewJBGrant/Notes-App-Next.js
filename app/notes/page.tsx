@@ -100,9 +100,9 @@ export default async function NotesPage({
 
         <NoteFeed />
 
-        {/* {NoteSearch?.map((noteFeed) => {
+        {NoteSearch?.map((noteFeed) => {
         return <Note key={noteFeed.id} note={noteFeed} />;
-      })} */}
+      })}
       </div>
     </>
   );
