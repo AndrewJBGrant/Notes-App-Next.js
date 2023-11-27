@@ -4,7 +4,7 @@ import Timer from "@/app/timer/Timer";
 // First test
 
 describe('Timer', () => {
-it("Should find the focus", () => {
+it("Should find the focus start button", () => {
    // AAA Triple A test pattern
    //Number 1 Arrange!
   render(<Timer />)

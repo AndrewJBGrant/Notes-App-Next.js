@@ -34,15 +34,14 @@ export default function RootLayout({
       <html lang="en" className={inter.className}>
 
        <title>
-
         <TitleTime />
       </title>
+
+
         <body className="grid grid-cols-9 gap-1 relative bg-main dark:bg-slate-800 text-text-color">
           <header className="col-span-1">
             <NavBar />
           </header>
-
-
 
           {/* <!-- navigation --> */}
           <main className="col-start-2 col-end-7">

@@ -5,10 +5,14 @@ import NewJournalForm from "./CreateJournal";
 
 // import EditJournal from "./EditJournal";
 
-import SearchTest from "../SearchTest"
 import Journal from "./Journal";
+import SearchBarJournal from "./JournalSearch";
 
-export default async function JournalPage() {
+export default async function JournalPage({
+  searchParams,
+}: {
+  searchParams: any;
+}) {
   const session = await getServerSession(authOptions);
   const journalFeed = await prisma.journal.findMany({
     where: {
@@ -28,44 +32,59 @@ export default async function JournalPage() {
   //   journalFeed: JournalProps[];
   // };
 
-// async function handleSearch({ searchText }) {
-//   const session = await getServerSession(authOptions);
-//   const results = await prisma.journal.findMany({
-//       where: {
-//         OR: [
-//           {
-//             title: {
-//               contains: searchText,
-//             },
-//           },
-//           {
-//             content: {
-//               contains: searchText,
-//             },
-//           },
-//         ],
-//       },
-//     });
-// }
+  const urlParams = new URLSearchParams(searchParams);
+  const urlSearchParams = urlParams.get("search");
+  const query = urlSearchParams?.toString().split(" ").join("");
 
-    const currentUser = session?.user?.name;
+  const JournalSearch = await prisma.journal.findMany({
+    where: {
+      OR: [
+        {
+          content: {
+            contains: query,
+          },
+        },
+
+        {
+          title: {
+            contains: query,
+          },
+        },
+      ],
+    },
+  });
+
+
+const SearchResults = JournalSearch?.map((journalFeed) => {
+  return <Journal key={journalFeed.id} journal={journalFeed} />
+})
+
+const AllJournals = journalFeed?.map((journalFeed) => {
+  return <Journal key={journalFeed.id} journal={journalFeed} />
+})
+
+
+function JournalFeed() {
+  if (!query) {
+    return AllJournals
+  }
+  return SearchResults
+};
+
+
+
+
+  const currentUser = session?.user?.name;
 
   return (
     <>
+
+    <SearchBarJournal />
       <NewJournalForm />
 
-<section className="w-full md:w-2/3 flex flex-col items-center px-3">
- {journalFeed?.map((journalFeed) => {
-        return (
-           <Journal
-              key={journalFeed.id}
-               journal={journalFeed}
-             />
-
-
-        );
-      })}
-</section>
+      <section className="w-full md:w-2/3 flex flex-col items-center px-3">
+      <JournalFeed />
+      </section>
     </>
   );
 }

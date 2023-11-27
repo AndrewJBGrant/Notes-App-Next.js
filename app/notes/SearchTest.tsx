@@ -5,6 +5,10 @@ import { useDebounce } from "use-debounce";
 
 import { BsSearch } from "react-icons/bs";
 
+
+//IMPORTANT LINKS
+ // https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#userouter-hook
+
 // export type SearchProps = {
 //   onSearch: (value: string) => void;
 // }
@@ -57,6 +61,7 @@ const SearchBar = () => {
         // onKeyDown={handleKeyDown}
       />
       <button type="submit" className="absolute right-0 top-0 mt-5 mr-4 bg-slate-600">
+        Search here
       </button>
     </>
   );

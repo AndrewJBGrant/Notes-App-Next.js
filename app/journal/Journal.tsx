@@ -5,7 +5,7 @@ import EditJournalForm from "./EditJournal";
 export type JournalProps = {
 id: string;
 title: string;
-  author: {
+  author?: {
     name: string | null;
   } | null;
   content: string;

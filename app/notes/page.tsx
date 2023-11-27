@@ -3,8 +3,7 @@ import { prisma } from "../lib/prisma";
 import Note, { NoteProps } from "./Note";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import SearchBar from "../SearchTest";
-
+import SearchBar from "./SearchTest";
 
 export default async function NotesPage({
   searchParams,
@@ -27,7 +26,7 @@ export default async function NotesPage({
     },
   });
 
-// Taking the search query from the url
+  // Taking the search query from the url
   const urlParams = new URLSearchParams(searchParams);
   const urlSearchParams = urlParams.get("search");
   const query = urlSearchParams?.toString().split(" ").join(" ");
@@ -56,7 +55,14 @@ export default async function NotesPage({
   // (typeof searchParams) => object
   // (typeof query) => string
 
-console.log(typeof(query), "query", typeof(noteFeed), "noteFeed", typeof(NoteSearch), "note search")
+  console.log(
+    typeof query,
+    "query",
+    typeof noteFeed,
+    "noteFeed",
+    typeof NoteSearch,
+    "note search"
+  );
 
   type Props = {
     noteFeed: NoteProps[];
@@ -65,30 +71,20 @@ console.log(typeof(query), "query", typeof(noteFeed), "noteFeed", typeof(NoteSea
   // const currentUser = session?.user?.name;
   // const firstName = currentUser?.split(" ")
 
-
   const searchedNotes = NoteSearch?.map((noteFeed) => {
-    return <Note key={noteFeed.id} note={noteFeed} />
-  })
+    return <Note key={noteFeed.id} note={noteFeed} />;
+  });
 
-  const allNotes =  noteFeed?.map((noteFeed) => {
-          return <Note key={noteFeed.id} note={noteFeed} />;
-        })
+  const allNotes = noteFeed?.map((noteFeed) => {
+    return <Note key={noteFeed.id} note={noteFeed} />;
+  });
 
-
-
-function Item( ) {
-  if (!query) {
-    return allNotes;
+  function NoteFeed() {
+    if (!query) {
+      return allNotes;
+    }
+    return searchedNotes;
   }
-  return searchedNotes
-}
-
-
-
-
-
-
-
 
   return (
     <>
@@ -100,11 +96,11 @@ function Item( ) {
           return <Note key={noteFeed.id} note={noteFeed} />;
         })} */}
 
-      <p>QUERY:{query}</p>
+        <p>QUERY:{query}</p>
 
-      <Item />
+        <NoteFeed />
 
-      {/* {NoteSearch?.map((noteFeed) => {
+        {/* {NoteSearch?.map((noteFeed) => {
         return <Note key={noteFeed.id} note={noteFeed} />;
       })} */}
       </div>
