@@ -1,34 +1,14 @@
-
-import { getServerSession } from "next-auth";
-import CreateNote from "./notes/CreateNote"
-// import { redirect } from "next/dist/server/api-utils";
+import CreateNote from "./notes/CreateNote";
 import AuthChecker from "./AuthChecker";
+import MostRecentJournal from "./journal/MostRecent";
 
-
-
-async function HomePage() {
-const session = await getServerSession();
-
-
-
-if(session) {
-  return <>Sign in to continue!</>;
-} else {
-
-
-
-
+async function Page() {
   return (
     <AuthChecker>
-    <div className=" justify-center p-8">
-
-<h2>Hello there</h2>
-
-      <CreateNote />
-    </div>
+      <MostRecentJournal />
+      {/* <CreateNote /> */}
     </AuthChecker>
   );
 }
-};
 
-export default HomePage;
+export default Page;

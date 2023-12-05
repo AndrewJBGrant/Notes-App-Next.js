@@ -1,4 +1,3 @@
-"use client";
 
 import { useContext } from "react";
 import { TimerContext } from "./timer/TimeContext";
@@ -8,7 +7,7 @@ function TitleTime() {
 
   return (
     <TimerContext.Provider value={time}>
-      
+
     </TimerContext.Provider>
   );
 }

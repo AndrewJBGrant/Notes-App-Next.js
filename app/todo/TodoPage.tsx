@@ -8,19 +8,19 @@ import Todo from "./Todos";
 export default async function TodoPage() {
   const session = await getServerSession(authOptions);
   // console.log(session?.user?.name, "Hello there User were looking at todos??!");
-  const todoFeed = await prisma.todo.findMany({
-    where: {
-      author: { email: session?.user?.email },
-    },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  // const todoFeed = await prisma.todo.findMany({
+  //   where: {
+  //     author: { email: session?.user?.email },
+  //   },
+  //   include: {
+  //     author: {
+  //       select: { name: true },
+  //     },
+  //   },
+  //   orderBy: {
+  //     createdAt: "desc",
+  //   },
+  // });
 
   //console.log(noteFeed)
 
@@ -44,10 +44,12 @@ export default async function TodoPage() {
   return (
     <>
       <div className="grid mx-4">
-        <NewTodoForm />
+        <h2>Todo's will go here</h2>
+
+        {/* <NewTodoForm />
         {todoFeed?.map((todoFeed) => {
           return <Todo key={todoFeed.id} todo={todoFeed} />;
-        })}
+        })} */}
       </div>
     </>
   );

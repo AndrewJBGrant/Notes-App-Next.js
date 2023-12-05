@@ -1,5 +1,4 @@
 import "./globals.css";
-// import Link from "next/link";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import NavBar from "./NavBar";
@@ -10,7 +9,7 @@ import FinalTodo from "./todo/TodoPage";
 import AuthProvider from "./AuthProvider";
 
 import TitleTime from "./TitleTime";
-// import { getServerSession } from "next-auth";
+
 
 
 

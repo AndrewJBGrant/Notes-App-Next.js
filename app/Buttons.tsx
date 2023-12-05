@@ -1,7 +1,5 @@
-"use client";
 
 import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
 
 export function SignInButton() {
 const { data: session, status} = useSession();
@@ -10,16 +8,18 @@ const { data: session, status} = useSession();
 if (status === 'loading') {
   return <>....Loading!!!</>
 };
+
+
 if (status === 'authenticated') {
-  return <Link href={`/`}>
-{session.user?.name}
-  </Link>
+  return <><h2>welcome home Piggley</h2></>
 }
 
   return <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" onClick={() => signIn()}>Sign in</button>
 }
+
+
 export function SignOutButton() {
-  return <button className="border" onClick={() => signOut()}>Sign out</button>
+  return <button onClick={() => signOut()}>Sign out</button>
   // Built in Next Auth signOut function
 }
 
