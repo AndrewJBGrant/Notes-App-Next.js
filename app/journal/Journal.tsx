@@ -1,4 +1,3 @@
-"use client";
 import DeleteJournal from "./DeleteJournal";
 import EditJournalForm from "./EditJournal";
 

@@ -33,12 +33,6 @@ const SearchBarJournal = () => {
         onChange={searchHandler}
         // onKeyDown={handleKeyDown}
       />
-      <button
-        type="submit"
-        className="absolute right-0 top-0 mt-5 mr-4 bg-slate-600"
-      >
-        Search
-      </button>
     </>
   );
 };

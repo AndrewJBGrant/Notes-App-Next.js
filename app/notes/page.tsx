@@ -55,14 +55,14 @@ export default async function NotesPage({
   // (typeof searchParams) => object
   // (typeof query) => string
 
-  console.log(
-    typeof query,
-    "query",
-    typeof noteFeed,
-    "noteFeed",
-    typeof NoteSearch,
-    "note search"
-  );
+  // console.log(
+  //   typeof query,
+  //   "query",
+  //   typeof noteFeed,
+  //   "noteFeed",
+  //   typeof NoteSearch,
+  //   "note search"
+  // );
 
   type Props = {
     noteFeed: NoteProps[];
@@ -96,13 +96,12 @@ export default async function NotesPage({
           return <Note key={noteFeed.id} note={noteFeed} />;
         })} */}
 
-        <p>QUERY:{query}</p>
 
         <NoteFeed />
 
-        {NoteSearch?.map((noteFeed) => {
+        {/* {NoteSearch?.map((noteFeed) => {
         return <Note key={noteFeed.id} note={noteFeed} />;
-      })}
+      })} */}
       </div>
     </>
   );

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { editedJournalAction } from '../_actions';
-import { HighlightLinks } from '../HighlightLinks';
+// import { HighlightLinks } from '../HighlightLinks';
+import Journal from './Journal';
 
 const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTitle: string, journalId: string, initialContent: string}) => {
   const [content, setContent] = useState(initialContent);
@@ -22,11 +23,11 @@ const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTi
 // };
 
 
-const linkableContent = ({ children, } : {children: React.ReactNode }) => {
-return (
- <HighlightLinks content={content} />
-      )
-}
+// const linkableContent = ({ children, } : {children: React.ReactNode }) => {
+// return (
+//  <HighlightLinks content={content} />
+//       )
+// }
 
 
   return (
@@ -41,12 +42,12 @@ return (
       />
 
       <textarea
-        value={linkableContent}
+        value={content}
         onChange={(e) => setContent(e.target.value) }
         onBlur={handleSave}
       />
 
-     
+
     </div>
   );
 };

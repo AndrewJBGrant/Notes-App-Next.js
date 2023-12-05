@@ -1,8 +1,8 @@
 "use client";
-import { useRef } from "react";
+
 import DeleteNote from "./DeleteNote";
 import styles from "./Notes.module.css";
-import { HighlightLinks } from "../HighlightLinks";
+// import { HighlightLinks } from "../HighlightLinks";
 import EditNoteForm from "./EditNote";
 
 export type NoteProps = {
@@ -30,7 +30,7 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
             noteId={note.id}
             initialContent={note.content}
             initialTitle={note.title}
-          
+
           />
 
           {/* <HighlightLinks content={note.content} /> */}

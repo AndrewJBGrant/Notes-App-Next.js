@@ -8,10 +8,6 @@ import "tailwindcss/tailwind.css";
 import FinalTodo from "./todo/TodoPage";
 import AuthProvider from "./AuthProvider";
 
-import TitleTime from "./TitleTime";
-
-
-
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -32,10 +28,6 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en" className={inter.className}>
 
-       <title>
-        <TitleTime />
-      </title>
-
 
         <body className="grid grid-cols-9 gap-1 relative bg-main dark:bg-slate-800 text-text-color">
           <header className="col-span-1">
@@ -47,8 +39,8 @@ export default function RootLayout({
             <section>{children}</section>
           </main>
           <aside className="col-start-7 col-end-10 fixed m-4">
-            <Timer />
-            <FinalTodo />
+            {/* <Timer /> */}
+            {/* <FinalTodo /> */}
           </aside>
         </body>
       </html>

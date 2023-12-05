@@ -6,7 +6,7 @@ import { GlobalStyles } from "../theme/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { focus, short, long } from "../theme/Theme.styled";
 
-import useSound from "use-sound";
+// import useSound from "use-sound";
 // import { TimerEnd } from "../sounds/TimerEnd.mp3";
 
 import { ThemeContainer } from "../theme/ThemeSwitching.styled";
@@ -46,10 +46,10 @@ const Timer: React.FC = () => {
   }, [running]);
 
 
-const timeEnd = () => {
+// const timeEnd = () => {
 
-  const [play] = useSound("../sounds/TimerEnd.mp3");
-}
+//   const [play] = useSound("../sounds/TimerEnd.mp3");
+// }
 
 
   return (
@@ -71,7 +71,7 @@ const timeEnd = () => {
 
           <button
             className="px-8 text-3xl flex justify-center transition-colors duration-150 bg focus:shadow-outline border border-indigo-600 hover:bg-indigo-800"
-            onClick={() => {setIsRunning(!running); {timeEnd} ; alert("starting timer")}}
+            onClick={() => {setIsRunning(!running); ; alert("starting timer")}}
           >
             {running ? "Pause" : "Start"}
           </button>

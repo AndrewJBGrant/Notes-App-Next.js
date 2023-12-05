@@ -59,7 +59,7 @@ const NavBar = () => {
           text={"A place to keep track of your thoughts and progress"}
         />
       </NavLink>
-{/* 
+{/*
       <NavLink href="#">
         <ColorThemeButton />
       </NavLink> */}

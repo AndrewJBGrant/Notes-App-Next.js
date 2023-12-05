@@ -55,26 +55,26 @@ export default async function JournalPage({
   });
 
 
-const SearchResults = JournalSearch?.map((journalFeed) => {
+const searchResults = JournalSearch?.map((journalFeed) => {
   return <Journal key={journalFeed.id} journal={journalFeed} />
 })
 
-const AllJournals = journalFeed?.map((journalFeed) => {
+const allJournals = journalFeed?.map((journalFeed) => {
   return <Journal key={journalFeed.id} journal={journalFeed} />
 })
 
 
 function JournalFeed() {
   if (!query) {
-    return AllJournals
+    return allJournals;
   }
-  return SearchResults
-};
+  return searchResults;
+}
 
 
 
 
-  const currentUser = session?.user?.name;
+  // const currentUser = session?.user?.name;
 
   return (
     <>
@@ -82,7 +82,7 @@ function JournalFeed() {
     <SearchBarJournal />
       <NewJournalForm />
 
-      <section className="w-full md:w-2/3 flex flex-col items-center px-3">
+      <section className="w-full md:w-2/3 flex flex-col items-center px-3 border border-green-600">
       <JournalFeed />
       </section>
     </>

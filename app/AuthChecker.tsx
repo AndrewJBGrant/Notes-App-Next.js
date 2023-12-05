@@ -20,6 +20,7 @@ export default async function AuthChecker({
   } else {
     return (
       <>
+      <h1>Once again these client errors</h1>
         {/* <SignInButton /> */}
       </>
     );
