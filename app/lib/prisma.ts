@@ -10,4 +10,6 @@ export const prisma =
     log: ['query'],
   })
 
+  // export type PrismaModel = PrismaClient[typeof modelname]
+
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma

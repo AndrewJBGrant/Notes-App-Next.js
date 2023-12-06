@@ -6,7 +6,7 @@ import NewJournalForm from "./CreateJournal";
 // import EditJournal from "./EditJournal";
 
 import Journal from "./Journal";
-import SearchBar from "../SearchBar";
+import SearchBar from "../search/SearchBar";
 
 export default async function JournalPage({
   searchParams,
@@ -28,10 +28,6 @@ export default async function JournalPage({
     },
   });
 
-  // type Props = {
-  //   journalFeed: JournalProps[];
-  // };
-
   const urlParams = new URLSearchParams(searchParams);
   const urlSearchParams = urlParams.get("search");
   const query = urlSearchParams?.toString().split(" ").join("");
@@ -42,50 +38,43 @@ export default async function JournalPage({
         {
           content: {
             contains: query,
-             mode: 'insensitive',
+            mode: "insensitive",
           },
         },
 
         {
           title: {
             contains: query,
-             mode: 'insensitive',
+            mode: "insensitive",
           },
         },
       ],
     },
   });
 
+  const searchResults = JournalSearch?.map((journalFeed) => {
+    return <Journal key={journalFeed.id} journal={journalFeed} />;
+  });
 
-const searchResults = JournalSearch?.map((journalFeed) => {
-  return <Journal key={journalFeed.id} journal={journalFeed} />
-})
-
-const allJournals = journalFeed?.map((journalFeed) => {
-  return <Journal key={journalFeed.id} journal={journalFeed} />
-})
+  const allJournals = journalFeed?.map((journalFeed) => {
+    return <Journal key={journalFeed.id} journal={journalFeed} />;
+  });
 
 
-function JournalFeed() {
-  if (!query) {
-    return allJournals;
+  function JournalFeed() {
+    if (!query) {
+      return allJournals;
+    }
+    return searchResults;
   }
-  return searchResults;
-}
-
-
-
-
-  // const currentUser = session?.user?.name;
 
   return (
     <>
       <section className="flex flex-col items-center px-3 border border-green-600">
+        <SearchBar type={"journal"} />
+        <NewJournalForm />
 
-    <SearchBar type={"journal"} />
-      <NewJournalForm />
-
-      <JournalFeed />
+        <JournalFeed />
       </section>
     </>
   );

@@ -3,7 +3,7 @@ import { prisma } from "../lib/prisma";
 import Note, { NoteProps } from "./Note";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import SearchBar from "../SearchBar"
+import SearchBar from "../search/SearchBar"
 
 export default async function NotesPage({
   searchParams,
