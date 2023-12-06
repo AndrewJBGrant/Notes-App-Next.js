@@ -19,7 +19,7 @@ data: {
   });
 return { journal };
 } catch (error) {
-  console.log(error, "No journal entry");
+  console.log(error, "No journal entry Today", {content});
   return { error };
   }
 }
@@ -63,4 +63,3 @@ export async function editJournal(content: string, journalId: string) {
     return { error };
   }
 }
-

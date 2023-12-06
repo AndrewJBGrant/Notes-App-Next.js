@@ -29,7 +29,8 @@ const currentUser = session?.user?.name;
 
 <h3>hopefully we are seeing something</h3>
 
-<p className="border border-slate-800">{lastJournalEntry?.content}</p>
+<p className="text-lg border border-slate-800">
+  {lastJournalEntry?.title}{lastJournalEntry?.content}</p>
 
 </>
 )}

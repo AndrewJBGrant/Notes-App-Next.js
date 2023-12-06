@@ -31,7 +31,7 @@ export default function RootLayout({
 
         <body className="grid grid-cols-9 gap-1 relative bg-main dark:bg-slate-800 text-text-color">
           <header className="col-span-1">
-            <NavBar />
+            {/* <NavBar /> */}
           </header>
 
           {/* <!-- navigation --> */}

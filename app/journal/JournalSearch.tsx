@@ -6,7 +6,7 @@ import { useDebounce } from "use-debounce";
 const SearchBarJournal = () => {
   const router = useRouter();
 
-  const placeHolderText = "search here for jouranl bits";
+  const placeHolderText = "Search here...";
   const [value, setValue] = useState("");
   const [query] = useDebounce(value, 500);
 
@@ -26,7 +26,7 @@ const SearchBarJournal = () => {
   return (
     <>
       <input
-        className="h-10 px-5 pr-10 w-2/3 rounded-md border border-red-600"
+        className="h-12 px-3 w-2/3 rounded-md border border-red-600"
         type={"search"}
         name={"search"}
         placeholder={placeHolderText}

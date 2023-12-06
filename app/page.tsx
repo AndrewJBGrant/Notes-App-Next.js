@@ -4,10 +4,10 @@ import MostRecentJournal from "./journal/MostRecent";
 
 async function Page() {
   return (
-    <AuthChecker>
+    // <AuthChecker>
       <MostRecentJournal />
-      {/* <CreateNote /> */}
-    </AuthChecker>
+      /* <CreateNote /> */
+    // </AuthChecker>
   );
 }
 
