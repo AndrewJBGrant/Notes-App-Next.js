@@ -3,7 +3,7 @@ import { prisma } from "../lib/prisma";
 import Note, { NoteProps } from "./Note";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import SearchBar from "./SearchTest";
+import SearchBar from "../SearchBar"
 
 export default async function NotesPage({
   searchParams,
@@ -90,7 +90,7 @@ export default async function NotesPage({
 
   return (
     <>
-      <SearchBar />
+      <SearchBar type={"notes"} />
 
       <div className="row-span-3 grid gap-2 grid-cols-3 m-4">
         <CreateNote />

@@ -6,7 +6,7 @@ import NewJournalForm from "./CreateJournal";
 // import EditJournal from "./EditJournal";
 
 import Journal from "./Journal";
-import SearchBarJournal from "./JournalSearch";
+import SearchBar from "../SearchBar";
 
 export default async function JournalPage({
   searchParams,
@@ -82,7 +82,7 @@ function JournalFeed() {
     <>
       <section className="flex flex-col items-center px-3 border border-green-600">
 
-    <SearchBarJournal />
+    <SearchBar type={"journal"} />
       <NewJournalForm />
 
       <JournalFeed />
