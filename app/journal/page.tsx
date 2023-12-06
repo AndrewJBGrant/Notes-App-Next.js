@@ -42,12 +42,14 @@ export default async function JournalPage({
         {
           content: {
             contains: query,
+             mode: 'insensitive',
           },
         },
 
         {
           title: {
             contains: query,
+             mode: 'insensitive',
           },
         },
       ],

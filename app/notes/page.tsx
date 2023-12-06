@@ -40,12 +40,14 @@ export default async function NotesPage({
         {
           content: {
             contains: query,
+             mode: 'insensitive',
           },
         },
 
         {
           title: {
             contains: query,
+             mode: 'insensitive',
           },
         },
       ],
