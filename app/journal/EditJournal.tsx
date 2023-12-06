@@ -1,53 +1,56 @@
 "use client";
 
-import { useState } from 'react';
-import { editedJournalAction } from '../_actions';
+import { useState } from "react";
+import { editedJournalAction } from "../_actions";
 // import { HighlightLinks } from '../HighlightLinks';
-import Journal from './Journal';
+import Journal from "./Journal";
 
-const EditJournalForm = ({ journalId, initialTitle, initialContent }: {initialTitle: string, journalId: string, initialContent: string}) => {
+const EditJournalForm = ({
+  journalId,
+  initialTitle,
+  initialContent,
+}: {
+  initialTitle: string;
+  journalId: string;
+  initialContent: string;
+}) => {
   const [content, setContent] = useState(initialContent);
-    const [title, setTitle] = useState(initialTitle);
+  const [title, setTitle] = useState(initialTitle);
   const handleSave = async () => {
- await editedJournalAction(title, content, journalId)
-//  console.log(title, content, "JOURNAL is this edited??");
+    await editedJournalAction(title, content, journalId);
+    //  console.log(title, content, "JOURNAL is this edited??");
   };
 
+  // const Component = ({
+  //   children,
+  // }: {
+  //   children: React.ReactNode;
+  // }) => {
+  //   return <div>{children}</div>;
+  // };
 
-// const Component = ({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) => {
-//   return <div>{children}</div>;
-// };
-
-
-// const linkableContent = ({ children, } : {children: React.ReactNode }) => {
-// return (
-//  <HighlightLinks content={content} />
-//       )
-// }
-
+  // const linkableContent = ({ children, } : {children: React.ReactNode }) => {
+  // return (
+  //  <HighlightLinks content={content} />
+  //       )
+  // }
 
   return (
     <div>
-  <input className="text-slate-700 text-2xl font-bold pb-4"
+      <input
+        className="text-slate-700 text-2xl font-bold pb-4"
         // type="text"
         // id="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onBlur={handleSave}
-
       />
 
       <textarea
         value={content}
-        onChange={(e) => setContent(e.target.value) }
+        onChange={(e) => setContent(e.target.value)}
         onBlur={handleSave}
       />
-
-
     </div>
   );
 };

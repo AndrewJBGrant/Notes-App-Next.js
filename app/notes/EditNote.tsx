@@ -28,8 +28,6 @@ const EditNoteForm = ({
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         onBlur={handleSave}
-
-
       />
 
       <textarea

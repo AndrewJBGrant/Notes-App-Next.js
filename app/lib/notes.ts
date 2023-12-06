@@ -70,21 +70,3 @@ export async function editNote(title: string, content: string, noteId: string) {
 }
 
 
-export async function noteSearch() {
-const searchTerm = "";
-const searchNotes = await prisma.note.findMany({
-  where: {
-    title: {
-      search: searchTerm,
-    },
-    content: {
-      search: searchTerm,
-    },
-    color: {
-      search: searchTerm,
-    },
-  },
-});
-console.log(searchTerm, "search Term", searchNotes, "coming from notes.ts")
-return { searchNotes }
-};

@@ -1,7 +1,7 @@
 "use server"
 
 import { revalidatePath } from "next/cache";
-import { createNote, deleteNote, editNote, noteSearch } from "./lib/notes"
+import { createNote, deleteNote, editNote } from "./lib/notes"
 import { createTodo, deleteTodo } from "./lib/todos";
 import { createJournal, deleteJournal, editJournal } from "./lib/journals";
 // Note Actions
@@ -19,11 +19,6 @@ export async function editNoteAction(noteId: string, title: string, content: str
   await editNote(noteId, title, content);
   revalidatePath('/app/notes/page')
 }
-
-export async function searchNoteAction() {
-  await noteSearch()
-}
-
 
 
 // Todo Actions

@@ -13,8 +13,6 @@ const ColorPicker = () => {
   };
   return (
     <>
-
-      <div>
         {colorOptions.map((color) => (
           <button
           type="button"
@@ -29,7 +27,6 @@ const ColorPicker = () => {
             onClick={() => changeStyle(color)}
           />
         ))}
-      </div>
     </>
   );
 };

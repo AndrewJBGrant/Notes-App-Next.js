@@ -92,30 +92,10 @@ export default async function NotesPage({
     <>
       <SearchBar type={"notes"} />
 
-      <div className="row-span-3 grid gap-2 grid-cols-3 m-4">
+      <section className="row-span-3 grid gap-2 grid-cols-3 m-4">
         <CreateNote />
-        {/* {noteFeed?.map((noteFeed) => {
-          return <Note key={noteFeed.id} note={noteFeed} />;
-        })} */}
-
-
         <NoteFeed />
-
-        {/* {NoteSearch?.map((noteFeed) => {
-        return <Note key={noteFeed.id} note={noteFeed} />;
-      })} */}
-      </div>
+      </section>
     </>
   );
 }
-
-//   //  color: {
-//   //     search: "#FFD046",
-//   //   },
-//   },
-
-// orderBy: {
-//   _relevance: {
-//   fields: ['content'],
-//       search: query,
-//         }

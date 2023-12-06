@@ -17,14 +17,11 @@ export type NoteProps = {
 };
 
 const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
-  const authorName = note.author ? note.author.name : "Unknown author";
 
-  //   console.log(createdAt.toLocaleDateString());
   let dateString = note.createdAt.toLocaleDateString();
 
   return (
-    <>
-      <div className={styles.note} style={{ backgroundColor: note.color! }}>
+      <section className={styles.note} style={{ backgroundColor: note.color! }}>
         <div className="w-full">
           <EditNoteForm
             noteId={note.id}
@@ -40,11 +37,11 @@ const Note: React.FC<{ note: NoteProps }> = ({ note }) => {
           defaultValue={note.content} /> */}
 
         <div className="text-base font-semibold leading-7 flex justify-between items-center">
-          <p className="text-sm text-slate-900 truncate">{dateString}</p>
+          <span className="text-sm text-slate-900 truncate">{dateString}</span>
           <DeleteNote noteId={note.id} />
         </div>
-      </div>
-    </>
+      </section>
+
   );
 };
 
