@@ -1,6 +1,6 @@
 "use client";
 import NavLink from "./nav-link";
-import { SignInButton, SignOutButton } from "./Buttons";
+import { AuthButton } from "./AuthButtons";
 // import ColorThemeButton from "./buttons/colorThemeButton";
 
 export function getDate() {
@@ -38,7 +38,7 @@ const NavBarIcon = ({ icon, title, text }: any) => (
 );
 
 const NavBar = () => {
-  const currentDate = getDate()
+  const currentDate = getDate();
   // const [currentTime, setCurrentTime] = useState(getTime());
 
   return (
@@ -59,12 +59,11 @@ const NavBar = () => {
           text={"A place to keep track of your thoughts and progress"}
         />
       </NavLink>
-{/*
+      {/*
       <NavLink href="#">
         <ColorThemeButton />
       </NavLink> */}
-
-      <SignOutButton />
+      <AuthButton />
     </div>
   );
 };

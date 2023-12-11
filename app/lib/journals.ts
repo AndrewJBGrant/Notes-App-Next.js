@@ -20,6 +20,7 @@ data: {
 return { journal };
 } catch (error) {
   console.log(error, "No journal entry Today", {content});
+  
   return { error };
   }
 }

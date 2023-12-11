@@ -31,7 +31,7 @@ export default function RootLayout({
 
         <body className="grid grid-cols-9 gap-1 relative bg-main dark:bg-slate-800 text-text-color">
           <header className="col-span-1">
-            {/* <NavBar /> */}
+             <NavBar />
           </header>
 
           {/* <!-- navigation --> */}
@@ -39,8 +39,8 @@ export default function RootLayout({
             <section>{children}</section>
           </main>
           <aside className="col-start-7 col-end-10 fixed m-4">
-            {/* <Timer /> */}
-            {/* <FinalTodo /> */}
+             <Timer />
+            <FinalTodo />
           </aside>
         </body>
       </html>

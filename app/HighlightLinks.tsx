@@ -1,8 +1,7 @@
-import DOMPurify, { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 
 
-const renderLinks = (content: string): React.ReactNode  => {
-
+const renderLinks = (content: string)  => {
   const clickableLink = content.replace(
     /((https?:\/\/[^\s]+)|\[([^\]]+)\]\((https?:\/\/[^\s]+)\))/g,
     (match: any, url: any, _: any, linkText: any) => {
@@ -15,21 +14,15 @@ const renderLinks = (content: string): React.ReactNode  => {
     }
   );
 
-  console.log(renderLinks("fffff"))
-
 // Using DOMPurify
-  const sanitizedLinks = () => ({
-   __html: DOMPurify.sanitize(clickableLink)
-  });
-
-
+  const sanitizedLinks = DOMPurify.sanitize(clickableLink)
   // Make the link open in a new tab
   const contentWithTargetBlank = sanitizedLinks.replace(/<a /g, '<a target="_blank" ');
 
-  // return { contentWithTargetBlank };
+  return { __html: contentWithTargetBlank };
 }
 
 // https://bobbyhadz.com/blog/typescript-binding-element-implicitly-has-an-any-type
  export function HighlightLinks({ content }: {content: any}) {
-   return <span className='highlights' dangerouslySetInnerHTML={sanitizedLinks()} />;
+   return <span className='highlights' dangerouslySetInnerHTML={renderLinks(content)} />;
  }
