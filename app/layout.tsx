@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
-import FinalTodo from "./todo/TodoPage";
+// import FinalTodo from "./todo/TodoPage";
 import AuthProvider from "./AuthProvider";
 
 
@@ -40,7 +40,7 @@ export default function RootLayout({
           </main>
           <aside className="col-start-7 col-end-10 fixed m-4">
              <Timer />
-            <FinalTodo />
+            {/* <FinalTodo /> */}
           </aside>
         </body>
       </html>

@@ -23,6 +23,8 @@ include: {
 // console.log(lastJournalEntry?.content,"do we get to see it?")
 
 const currentUser = session?.user?.name;
+
+console.log(currentUser, "CURRENT USER MOSTRECENTJOURNAL")
   return (
 <>
 <h1 className="border border-slate-800 p-4">The most recent journal?</h1>

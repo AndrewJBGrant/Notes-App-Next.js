@@ -1,5 +1,5 @@
-import { FaRegMoon } from "react-icons/fa";
-import { GoSun } from "react-icons/go"
+// import { FaRegMoon } from "react-icons/fa";
+// import { GoSun } from "react-icons/go"
 // import useColorTheme from "../hooks/colorTheme";
 
 

@@ -1,11 +1,12 @@
 import CreateNote from "./notes/CreateNote";
 import AuthChecker from "./AuthChecker";
-import MostRecentJournal from "./journal/MostRecent";
+// import MostRecentJournal from "./journal/MostRecent";
 import { getServerSession } from "next-auth";
-import { SignInButton } from "./AuthButtons";
+// import AuthButton from "./AuthButtons";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 async function HomePage() {
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   if (session) {
     return (

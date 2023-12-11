@@ -14,5 +14,10 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
+
+console.log(authOptions.jwt, "JWT FROM route.ts");
+
+console.log(authOptions.session, "session")
+
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

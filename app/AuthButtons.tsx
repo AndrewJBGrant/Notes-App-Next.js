@@ -33,3 +33,5 @@ export function AuthButton() {
 // }
 
 // Creating different button components to have only one 'use client' file
+
+export default AuthButton;

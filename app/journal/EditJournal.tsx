@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { editedJournalAction } from "../_actions";
 // import { HighlightLinks } from '../HighlightLinks';
-import Journal from "./Journal";
+// import Journal from "./Journal";
 
 const EditJournalForm = ({
   journalId,

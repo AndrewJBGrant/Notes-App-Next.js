@@ -1,6 +1,6 @@
 "use client";
 import NavLink from "./nav-link";
-import { AuthButton } from "./AuthButtons";
+import AuthButton from "./AuthButtons";
 // import ColorThemeButton from "./buttons/colorThemeButton";
 
 export function getDate() {

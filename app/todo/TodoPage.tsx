@@ -1,9 +1,9 @@
-import { getDate } from "../NavBar";
-import { prisma } from "../lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import NewTodoForm from "./NewTodo";
-import Todo from "./Todos";
+// import { getDate } from "../NavBar";
+// import { prisma } from "../lib/prisma";
+ import { getServerSession } from "next-auth";
+ import { authOptions } from "../api/auth/[...nextauth]/route";
+// import NewTodoForm from "./NewTodo";
+// import Todo from "./Todos";
 
 export default async function TodoPage() {
   const session = await getServerSession(authOptions);
