@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Timer from "@/app/timer/Timer";
-
+import userEvent from "@testing-library/user-event";
 // First test
 
 describe('Timer', () => {
@@ -20,7 +20,7 @@ it("Should get the buttons", () => {
   render(<Timer />)
 // Number 2 Act!
 const myElem = screen.getByRole('button', {
-  name: 'Short Break'
+  name: 'Long Break'
 })
 // Number 3 Assertion!
 expect(myElem).toBeInTheDocument()

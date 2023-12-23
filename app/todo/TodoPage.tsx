@@ -22,7 +22,7 @@ export default async function TodoPage() {
   //   },
   // });
 
-  //console.log(noteFeed)
+  //console.log(todoFeed)
 
   // type Props = {
   //   noteFeed: NoteProps[];

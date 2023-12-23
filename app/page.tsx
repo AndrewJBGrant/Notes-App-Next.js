@@ -1,5 +1,5 @@
 import CreateNote from "./notes/CreateNote";
-import AuthChecker from "./AuthChecker";
+import AuthChecker from "./auth/AuthChecker";
 // import MostRecentJournal from "./journal/MostRecent";
 import { getServerSession } from "next-auth";
 // import AuthButton from "./AuthButtons";

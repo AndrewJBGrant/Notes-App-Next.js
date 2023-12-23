@@ -14,6 +14,8 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({type}) => {
 
+  console.log(typeof(SearchBar), "What is the Search bar??")
+
 const [searchQuery, setSearchQuery] = useState("")
 const [debouncedValue] = useDebounce(searchQuery, 1000)
 const placeHolderText = "Search here...";
@@ -33,6 +35,17 @@ useEffect(() => {
   //console.log(searchQuery, "first useEffect")
   }
 }, [debouncedValue, router, type])
+
+// const orignalJSX =   <input
+//     value={searchQuery}
+//     onChange={handleInputChange}
+//       className="w-2/3"
+//       placeholder={placeHolderText}
+//     />
+
+//     console.log(orignalJSX.key, "key")
+//     console.log(orignalJSX.props, "props")
+//     console.log(orignalJSX.type, "type")
 
 
   return (

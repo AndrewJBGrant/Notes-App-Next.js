@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import  AuthButton from "./AuthButtons";
+import AuthButton from "./AuthButtons";
 
 export default async function AuthChecker({
   children,
@@ -10,8 +10,6 @@ export default async function AuthChecker({
   //                   ^?
 }) {
   const { data: session, status } = useSession();
-
-
 
   console.log(session?.user?.name);
   // ,"/", status, "/hello we have session status");
