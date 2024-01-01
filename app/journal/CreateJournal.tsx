@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useRef } from "react";
 import { createJournalAction } from "../_actions";
 
@@ -42,7 +41,8 @@ const NewJournalForm = () => {
 
   return (
     <>
-      <form  className="w-full flex flex-col shadow my-4 p-3" ref={journalFormRef} action={journalAction}>
+      <form className="w-full flex flex-col shadow my-4 p-3" name="NewJournalForm" ref={journalFormRef} action={journalAction}>
+      <h1>Add Journal</h1>
         <input
           type="text"
           name="title"
@@ -50,7 +50,7 @@ const NewJournalForm = () => {
           // placeholder={datePlaceholer}
         />
         <textarea rows={16}  name="content" placeholder="What have you been working on..." />
-        <button type="submit">Create Journal</button>
+        <button type="submit" aria-label={`add Journal ${datePlaceholer}`}>Create Journal</button>
       </form>
     </>
   );
