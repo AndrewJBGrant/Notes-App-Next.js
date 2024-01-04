@@ -6,7 +6,7 @@ import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
 import FinalTodo from "./todo/TodoPage";
-import AuthProvider from "./auth/AuthProvider";
+// import AuthProvider from "./auth/AuthProvider";
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthProvider>
+    //<AuthProvider>
       <html lang="en" className={inter.className}>
         <body className="grid grid-cols-9 gap-1 relative bg-main dark:bg-slate-800 text-text-color">
           <header className="col-span-1">
@@ -41,6 +41,6 @@ export default function RootLayout({
           </aside>
         </body>
       </html>
-    </AuthProvider>
+   // </AuthProvider>
   );
 }

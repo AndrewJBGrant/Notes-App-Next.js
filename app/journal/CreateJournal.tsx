@@ -43,13 +43,13 @@ const NewJournalForm = () => {
     <>
       <form className="w-full flex flex-col shadow my-4 p-3" name="NewJournalForm" ref={journalFormRef} action={journalAction}>
       <h1>Add Journal</h1>
-        <input
+        <input spellCheck={true}
           type="text"
           name="title"
           defaultValue={datePlaceholer}
           // placeholder={datePlaceholer}
         />
-        <textarea rows={16}  name="content" placeholder="What have you been working on..." />
+        <textarea spellCheck={true} rows={16}  name="content" placeholder="What have you been working on..." />
         <button type="submit" aria-label={`add Journal ${datePlaceholer}`}>Create Journal</button>
       </form>
     </>

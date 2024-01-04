@@ -1,6 +1,6 @@
 "use client";
 import NavLink from "./nav-link";
-import AuthButton from "../auth/AuthButtons";
+// import AuthButton from "../auth/AuthButtons";
 // import ColorThemeButton from "./buttons/colorThemeButton";
 
 export function getDate() {
@@ -63,7 +63,7 @@ const NavBar = () => {
       <NavLink href="#">
         <ColorThemeButton />
       </NavLink> */}
-      <AuthButton />
+      {/* <AuthButton /> */}
     </div>
   );
 };

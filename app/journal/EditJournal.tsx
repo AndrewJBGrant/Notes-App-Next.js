@@ -38,6 +38,8 @@ const EditJournalForm = ({
   return (
     <div>
       <input
+      spellCheck={true}
+      
         className="text-slate-700 text-2xl font-bold pb-4"
         // type="text"
         // id="title"
@@ -47,9 +49,10 @@ const EditJournalForm = ({
       />
 
       <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        onBlur={handleSave}
+      spellCheck={true}
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
+      onBlur={handleSave}
       />
     </div>
   );

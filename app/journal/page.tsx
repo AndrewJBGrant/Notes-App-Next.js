@@ -13,10 +13,10 @@ export default async function JournalPage({
 }: {
   searchParams: any;
 }) {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
   const journalFeed = await prisma.journal.findMany({
     where: {
-      author: { email: session?.user?.email },
+      // author: { email: session?.user?.email },
     },
     include: {
       author: {
