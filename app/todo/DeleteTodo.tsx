@@ -1,16 +1,16 @@
 import DeleteButton from "../buttons/DeleteButton";
 import { deleteTodoAction } from "../_actions";
 
-// import { NoteProps } from "./Note";
+
 
 interface TodoDeleteProps {
-  todoId: string;
+  todoId: string | number;
 }
 
 const DeleteTodo: React.FC<TodoDeleteProps> = ({ todoId }) => {
   async function handleDeleteTodo() {
-    await deleteTodoAction(todoId);
-    console.log(todoId, "Coming from the delete todo page");
+    // await deleteTodoAction(todoId);
+    // console.log(todoId, "Coming from the delete todo page");
   }
 
   return (

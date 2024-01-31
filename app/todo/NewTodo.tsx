@@ -23,7 +23,7 @@ const NewTodoForm = () => {
           <input
             placeholder="Add Todo.."
             name="content"
-            className="appearance-none bg-transparent border-none w-full text-gray-700 py-1 leading-tight focus:outline-none"
+            className="appearance-none bg-transparent border-none w-full text-gray-700 py-1 leading-tight focus:outline-"
           />
           <button
             data-testId="newTodoButton"
