@@ -5,7 +5,7 @@ import NavBar from "./navbar/NavBar";
 import Timer from "./timer/Timer";
 
 import "tailwindcss/tailwind.css";
-import FinalTodo from "./todo/TodoPage";
+import Todo from "./todo/page";
 // import AuthProvider from "./auth/AuthProvider";
 
 const inter = Roboto({
@@ -37,7 +37,7 @@ export default function RootLayout({
           </main>
           <aside className="col-start-7 col-end-10 fixed m-4">
             <Timer />
-            <FinalTodo />
+            <Todo />
           </aside>
         </body>
       </html>

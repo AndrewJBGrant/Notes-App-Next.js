@@ -31,20 +31,11 @@ export default async function TodoPage() {
   const currentUser = session?.user?.name;
   const firstName = currentUser?.split(" ");
 
-  const ourDate = new Date();
-
-  // getDate() {
-  //     const today = new Date();
-  //     const dayNames = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
-  // const day = today.getDay();
-  // // console.log(day)
-  // const currentDay = dayNames[day];
-  // };
 
   return (
     <>
       <div className="grid mx-4">
-        <h2>Todo's will go here</h2>
+        <h2>Todo's will go here TodoPage.tsx??</h2>
 
          <NewTodoForm />
         {todoFeed?.map((todoFeed) => {

@@ -1,5 +1,5 @@
 import CreateNote from "./notes/CreateNote";
-import AuthChecker from "./auth/AuthChecker";
+// import AuthChecker from "./auth/AuthChecker";
 // import MostRecentJournal from "./journal/MostRecent";
 import { getServerSession } from "next-auth";
 // import AuthButton from "./AuthButtons";
@@ -16,11 +16,9 @@ async function HomePage() {
     );
   } else {
     return (
-      <AuthChecker>
-        <h1>HELLOOOOO</h1>
-        {/* <MostRecentJournal /> */}
-        <CreateNote />
-      </AuthChecker>
+    <>
+        <h1>HELLOOOOO This is the Home page</h1>
+    </>
     );
   }
 }

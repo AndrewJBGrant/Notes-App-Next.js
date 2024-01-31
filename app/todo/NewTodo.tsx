@@ -12,7 +12,7 @@ const NewTodoForm = () => {
 
     await createTodoAction(content);
 
-    console.log(content, "coming from createTodo.tsx");
+    // console.log(content, "coming from createTodo.tsx");
     todoFormRef.current?.reset();
   }
 
