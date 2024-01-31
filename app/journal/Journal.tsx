@@ -1,5 +1,6 @@
 import DeleteJournal from "./DeleteJournal";
 import EditJournalForm from "./EditJournal";
+import Link from "next/link";
 
 export type JournalProps = {
 id: string;
@@ -21,7 +22,9 @@ return(
 
 {/* <h1 className="text-slate-700 text-2xl font-bold pb-4">{journal.title}</h1> */}
 
-
+   <Link href={`/journal/${journal.id}`} key={journal.id}>
+            <h3 className='font-medium'>{journal.id}</h3>
+          </Link>
 
 <EditJournalForm journalId={journal.id} initialContent={journal.content} initialTitle={journal.title} />
 
