@@ -23,14 +23,15 @@ const journalPost = await prisma.journal.findUnique({
     const { title, content, createdAt, id } = journalPost ?? {};
 
 
-
+ let dateString = journalPost?.createdAt.toLocaleDateString()
   // console.log(typeof(journalPost?.id))
 return (
 <>
  <Link href='/journal'>Go Back</Link>
-  <h2 className='font-bold text-3xl'>{journalPost?.title}</h2>
+  <h2 className='font-bold text-3xl'>{title}</h2>
       <div className='mt-6'>
-        {journalPost?.content}
+        {content}
+        {dateString}
       </div>
 
       {/* <EditJournalForm journalId={journalPost.id} initialContent={journalPost.content} initialTitle={journal.title} /> */}
