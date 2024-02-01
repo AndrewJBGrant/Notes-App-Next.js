@@ -1,18 +1,14 @@
 import { getServerSession } from "next-auth";
 import { prisma } from "../lib/prisma";
 import { authOptions } from "../api/auth/[...nextauth]/route";
-import NewJournalForm from "./CreateJournal";
 
 // import EditJournal from "./EditJournal";
 
+import NewJournalForm from "./CreateJournal";
 import Journal from "./Journal";
 import SearchBar from "../search/SearchBar";
 
-export default async function JournalPage({
-  searchParams,
-}: {
-  searchParams: any;
-}) {
+async function Page({ searchParams }: { searchParams: any }) {
   // const session = await getServerSession(authOptions);
   const journalFeed = await prisma.journal.findMany({
     where: {
@@ -60,7 +56,6 @@ export default async function JournalPage({
     return <Journal key={journalFeed.id} journal={journalFeed} />;
   });
 
-
   function JournalFeed() {
     if (!query) {
       return allJournals;
@@ -74,8 +69,12 @@ export default async function JournalPage({
         <SearchBar type={"journal"} />
         <NewJournalForm />
 
+        <h2>HELLLLLOOOOOOOOOO</h2>
+
         <JournalFeed />
       </section>
     </>
   );
 }
+
+export default Page;

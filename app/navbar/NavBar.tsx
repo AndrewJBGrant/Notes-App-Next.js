@@ -53,12 +53,12 @@ const NavBar = () => {
       {/* <NavLink href="notes">
         <NavBarIcon text={"Write down some quick notes"} title={"Notes"} />
       </NavLink> */}
-      <NavLink href="journal">
+      {/* <NavLink href="journal">
         <NavBarIcon
           title={"Journal"}
           text={"A place to keep track of your thoughts and progress"}
         />
-      </NavLink>
+      </NavLink> */}
 
        <NavLink href="#">
         DARK MODE

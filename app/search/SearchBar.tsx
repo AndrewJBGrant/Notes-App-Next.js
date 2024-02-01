@@ -14,7 +14,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({type}) => {
 
-  console.log(typeof(SearchBar), "What is the Search bar??")
+  // console.log(typeof(SearchBar), "What is the Search bar??")
 
 const [searchQuery, setSearchQuery] = useState("")
 const [debouncedValue] = useDebounce(searchQuery, 1000)
