@@ -42,7 +42,6 @@ const NewJournalForm = () => {
   return (
     <>
       <form className="w-full flex flex-col shadow my-4 p-3" name="NewJournalForm" ref={journalFormRef} action={journalAction}>
-      <h1>Add Journal</h1>
         <input spellCheck={true}
           type="text"
           name="title"

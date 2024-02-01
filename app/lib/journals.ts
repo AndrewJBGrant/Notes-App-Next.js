@@ -14,13 +14,13 @@ try {
 data: {
   title,
   content,
-  author: { connect: { email: session?.user?.email! }},
+  // author: { connect: { email: session?.user?.email! }},
 },
   });
 return { journal };
 } catch (error) {
   console.log(error, "No journal entry Today", {content});
-  
+
   return { error };
   }
 }

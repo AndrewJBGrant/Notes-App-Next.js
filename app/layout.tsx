@@ -36,8 +36,8 @@ export default function RootLayout({
             <section>{children}</section>
           </main>
           <aside className="col-start-7 col-end-10 fixed m-4">
-            <Timer />
-            <Todo />
+            {/* <Timer />
+            <Todo /> */}
           </aside>
         </body>
       </html>

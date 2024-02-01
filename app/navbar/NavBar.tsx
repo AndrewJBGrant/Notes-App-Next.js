@@ -43,10 +43,10 @@ const NavBar = () => {
 
   return (
     <div className="fixed top-0 h-screen m-4 flex flex-col text-main">
-      <div className="navbar-icon group">
+      {/* <div className="navbar-icon group">
         {currentDate}
         {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
-      </div>
+      {/* </div> */}
       {/* <NavLink href="/">
         <NavBarIcon title={"Home"} />
       </NavLink> */}
@@ -59,10 +59,10 @@ const NavBar = () => {
           text={"A place to keep track of your thoughts and progress"}
         />
       </NavLink> */}
-
+{/* 
        <NavLink href="#">
         DARK MODE
-      </NavLink>
+      </NavLink> */}
       {/* <AuthButton /> */}
     </div>
   );
