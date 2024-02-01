@@ -32,6 +32,6 @@
     "app/notes/CreateNote.tsx",
     "app/api/auth/[...nextauth]",
     "app/notes/SearchTest.tsx"
-  ],
+, "app/context/markdown-provider.js"  ],
   "exclude": ["node_modules"]
 }
