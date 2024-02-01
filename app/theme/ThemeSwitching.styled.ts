@@ -8,4 +8,5 @@ export const ThemeContainer = styled.div`
   align-items: center;
   padding: 10px;
   border-bottom:  ${({ theme }) => theme.colors.border};
+  border-raduis: ;
 `;

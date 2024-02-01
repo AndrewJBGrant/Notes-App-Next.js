@@ -54,18 +54,24 @@ export default async function Page({ searchParams }: { searchParams: any }) {
   function JournalFeed() {
     if (!query) {
       return allJournals;
-    }
+    } else {
     return searchResults;
+    }
   }
+
+console.log(searchResults);
 
   return (
     <>
       <section className="flex flex-col items-center px-3 border border-green-600">
         <SearchBar type={"/"} />
         <NewJournalForm />
-        <JournalFeed />
 
-        <section className="border border-slate-800">{searchResults}</section>
+        <section className="bg-green-700 w-full">
+          <JournalFeed />
+        </section>
+
+        {/* <section className="bg-yellow-400 border border-slate-800">{searchResults}</section> */}
       </section>
     </>
   );

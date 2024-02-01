@@ -56,7 +56,7 @@ const Timer: React.FC = () => {
     <ThemeProvider theme={selectedTheme}>
       <GlobalStyles />
       <ThemeContainer>
-        <div className="flex flex-col justify-center p-6">
+        <div className="flex flex-col justify-center p-6 rounded">
           {time === 300 ? (
             <h1 className="flex justify-center text-8xl">
               0{Math.floor(timeLeft / 60)}:

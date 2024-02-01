@@ -47,9 +47,9 @@ const NavBar = () => {
         {currentDate}
         {/* <span className="navbar-tooltip group-hover:scale-100">{currentTime}</span> */}
       </div>
-      <NavLink href="/">
+      {/* <NavLink href="/">
         <NavBarIcon title={"Home"} />
-      </NavLink>
+      </NavLink> */}
       {/* <NavLink href="notes">
         <NavBarIcon text={"Write down some quick notes"} title={"Notes"} />
       </NavLink> */}

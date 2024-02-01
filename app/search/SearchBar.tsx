@@ -52,7 +52,7 @@ useEffect(() => {
     <input
     value={searchQuery}
     onChange={handleInputChange}
-      className="w-2/3"
+      className="w-full"
       placeholder={placeHolderText}
     />
   );
