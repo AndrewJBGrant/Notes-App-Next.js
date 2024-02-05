@@ -50,16 +50,13 @@ const NavBar = () => {
       {/* <NavLink href="/">
         <NavBarIcon title={"Home"} />
       </NavLink> */}
-      {/* <NavLink href="notes">
-        <NavBarIcon text={"Write down some quick notes"} title={"Notes"} />
-      </NavLink> */}
       {/* <NavLink href="journal">
         <NavBarIcon
           title={"Journal"}
           text={"A place to keep track of your thoughts and progress"}
         />
       </NavLink> */}
-{/* 
+{/*
        <NavLink href="#">
         DARK MODE
       </NavLink> */}
